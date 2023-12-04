@@ -23,7 +23,6 @@ mixin _$EventModel {
   String get placeUrl => throw _privateConstructorUsedError;
   DateTime get time => throw _privateConstructorUsedError;
   List<String> get tags => throw _privateConstructorUsedError;
-  String get teamId => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $EventModelCopyWith<EventModel> get copyWith =>
@@ -43,8 +42,7 @@ abstract class $EventModelCopyWith<$Res> {
       String text,
       String placeUrl,
       DateTime time,
-      List<String> tags,
-      String teamId});
+      List<String> tags});
 }
 
 /// @nodoc
@@ -67,7 +65,6 @@ class _$EventModelCopyWithImpl<$Res, $Val extends EventModel>
     Object? placeUrl = null,
     Object? time = null,
     Object? tags = null,
-    Object? teamId = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -98,10 +95,6 @@ class _$EventModelCopyWithImpl<$Res, $Val extends EventModel>
           ? _value.tags
           : tags // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      teamId: null == teamId
-          ? _value.teamId
-          : teamId // ignore: cast_nullable_to_non_nullable
-              as String,
     ) as $Val);
   }
 }
@@ -121,8 +114,7 @@ abstract class _$$EventModelImplCopyWith<$Res>
       String text,
       String placeUrl,
       DateTime time,
-      List<String> tags,
-      String teamId});
+      List<String> tags});
 }
 
 /// @nodoc
@@ -143,7 +135,6 @@ class __$$EventModelImplCopyWithImpl<$Res>
     Object? placeUrl = null,
     Object? time = null,
     Object? tags = null,
-    Object? teamId = null,
   }) {
     return _then(_$EventModelImpl(
       id: null == id
@@ -174,10 +165,6 @@ class __$$EventModelImplCopyWithImpl<$Res>
           ? _value._tags
           : tags // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      teamId: null == teamId
-          ? _value.teamId
-          : teamId // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 }
@@ -192,8 +179,7 @@ class _$EventModelImpl implements _EventModel {
       required this.text,
       required this.placeUrl,
       required this.time,
-      required final List<String> tags,
-      required this.teamId})
+      required final List<String> tags})
       : _tags = tags;
 
   @override
@@ -217,11 +203,8 @@ class _$EventModelImpl implements _EventModel {
   }
 
   @override
-  final String teamId;
-
-  @override
   String toString() {
-    return 'EventModel(id: $id, title: $title, imagePath: $imagePath, text: $text, placeUrl: $placeUrl, time: $time, tags: $tags, teamId: $teamId)';
+    return 'EventModel(id: $id, title: $title, imagePath: $imagePath, text: $text, placeUrl: $placeUrl, time: $time, tags: $tags)';
   }
 
   @override
@@ -237,13 +220,12 @@ class _$EventModelImpl implements _EventModel {
             (identical(other.placeUrl, placeUrl) ||
                 other.placeUrl == placeUrl) &&
             (identical(other.time, time) || other.time == time) &&
-            const DeepCollectionEquality().equals(other._tags, _tags) &&
-            (identical(other.teamId, teamId) || other.teamId == teamId));
+            const DeepCollectionEquality().equals(other._tags, _tags));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, id, title, imagePath, text,
-      placeUrl, time, const DeepCollectionEquality().hash(_tags), teamId);
+      placeUrl, time, const DeepCollectionEquality().hash(_tags));
 
   @JsonKey(ignore: true)
   @override
@@ -260,8 +242,7 @@ abstract class _EventModel implements EventModel {
       required final String text,
       required final String placeUrl,
       required final DateTime time,
-      required final List<String> tags,
-      required final String teamId}) = _$EventModelImpl;
+      required final List<String> tags}) = _$EventModelImpl;
 
   @override
   String get id;
@@ -277,8 +258,6 @@ abstract class _EventModel implements EventModel {
   DateTime get time;
   @override
   List<String> get tags;
-  @override
-  String get teamId;
   @override
   @JsonKey(ignore: true)
   _$$EventModelImplCopyWith<_$EventModelImpl> get copyWith =>

@@ -1,4 +1,4 @@
-import 'package:athletic_hub/app/themes/app_theme.dart';
+import 'package:athletic_hub/app/util/themes/app_theme.dart';
 import 'package:athletic_hub/app/util/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

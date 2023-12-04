@@ -1,5 +1,5 @@
-import 'package:athletic_hub/app/themes/colors_palette.dart';
-import 'package:athletic_hub/app/themes/text_styles.dart';
+import 'package:athletic_hub/app/util/themes/colors_palette.dart';
+import 'package:athletic_hub/app/util/themes/text_styles.dart';
 import 'package:flutter/material.dart';
 class ThemeStyle extends ThemeExtension<ThemeStyle> {
   ThemeStyle({

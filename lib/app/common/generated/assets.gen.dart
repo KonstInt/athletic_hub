@@ -9,8 +9,31 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsIconsGen {
+  const $AssetsIconsGen();
+
+  /// File path: assets/icons/.gitkeep
+  String get gitkeep => 'assets/icons/.gitkeep';
+
+  /// List of all assets
+  List<String> get values => [gitkeep];
+}
+
+class $AssetsImagesGen {
+  const $AssetsImagesGen();
+
+  /// File path: assets/images/.gitkeep
+  String get gitkeep => 'assets/images/.gitkeep';
+
+  /// List of all assets
+  List<String> get values => [gitkeep];
+}
+
 class Assets {
   Assets._();
+
+  static const $AssetsIconsGen icons = $AssetsIconsGen();
+  static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 
 class AssetGenImage {

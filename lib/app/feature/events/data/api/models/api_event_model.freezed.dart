@@ -27,7 +27,6 @@ mixin _$ApiEventModel {
   String get placeUrl => throw _privateConstructorUsedError;
   String get time => throw _privateConstructorUsedError;
   List<String> get tags => throw _privateConstructorUsedError;
-  String get teamId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,8 +47,7 @@ abstract class $ApiEventModelCopyWith<$Res> {
       String text,
       String placeUrl,
       String time,
-      List<String> tags,
-      String teamId});
+      List<String> tags});
 }
 
 /// @nodoc
@@ -72,7 +70,6 @@ class _$ApiEventModelCopyWithImpl<$Res, $Val extends ApiEventModel>
     Object? placeUrl = null,
     Object? time = null,
     Object? tags = null,
-    Object? teamId = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -103,10 +100,6 @@ class _$ApiEventModelCopyWithImpl<$Res, $Val extends ApiEventModel>
           ? _value.tags
           : tags // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      teamId: null == teamId
-          ? _value.teamId
-          : teamId // ignore: cast_nullable_to_non_nullable
-              as String,
     ) as $Val);
   }
 }
@@ -126,8 +119,7 @@ abstract class _$$ApiEventModelImplCopyWith<$Res>
       String text,
       String placeUrl,
       String time,
-      List<String> tags,
-      String teamId});
+      List<String> tags});
 }
 
 /// @nodoc
@@ -148,7 +140,6 @@ class __$$ApiEventModelImplCopyWithImpl<$Res>
     Object? placeUrl = null,
     Object? time = null,
     Object? tags = null,
-    Object? teamId = null,
   }) {
     return _then(_$ApiEventModelImpl(
       id: null == id
@@ -179,10 +170,6 @@ class __$$ApiEventModelImplCopyWithImpl<$Res>
           ? _value._tags
           : tags // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      teamId: null == teamId
-          ? _value.teamId
-          : teamId // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 }
@@ -197,8 +184,7 @@ class _$ApiEventModelImpl implements _ApiEventModel {
       required this.text,
       required this.placeUrl,
       required this.time,
-      required final List<String> tags,
-      required this.teamId})
+      required final List<String> tags})
       : _tags = tags;
 
   factory _$ApiEventModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -225,11 +211,8 @@ class _$ApiEventModelImpl implements _ApiEventModel {
   }
 
   @override
-  final String teamId;
-
-  @override
   String toString() {
-    return 'ApiEventModel(id: $id, title: $title, imagePath: $imagePath, text: $text, placeUrl: $placeUrl, time: $time, tags: $tags, teamId: $teamId)';
+    return 'ApiEventModel(id: $id, title: $title, imagePath: $imagePath, text: $text, placeUrl: $placeUrl, time: $time, tags: $tags)';
   }
 
   @override
@@ -245,14 +228,13 @@ class _$ApiEventModelImpl implements _ApiEventModel {
             (identical(other.placeUrl, placeUrl) ||
                 other.placeUrl == placeUrl) &&
             (identical(other.time, time) || other.time == time) &&
-            const DeepCollectionEquality().equals(other._tags, _tags) &&
-            (identical(other.teamId, teamId) || other.teamId == teamId));
+            const DeepCollectionEquality().equals(other._tags, _tags));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, title, imagePath, text,
-      placeUrl, time, const DeepCollectionEquality().hash(_tags), teamId);
+      placeUrl, time, const DeepCollectionEquality().hash(_tags));
 
   @JsonKey(ignore: true)
   @override
@@ -276,8 +258,7 @@ abstract class _ApiEventModel implements ApiEventModel {
       required final String text,
       required final String placeUrl,
       required final String time,
-      required final List<String> tags,
-      required final String teamId}) = _$ApiEventModelImpl;
+      required final List<String> tags}) = _$ApiEventModelImpl;
 
   factory _ApiEventModel.fromJson(Map<String, dynamic> json) =
       _$ApiEventModelImpl.fromJson;
@@ -296,8 +277,6 @@ abstract class _ApiEventModel implements ApiEventModel {
   String get time;
   @override
   List<String> get tags;
-  @override
-  String get teamId;
   @override
   @JsonKey(ignore: true)
   _$$ApiEventModelImplCopyWith<_$ApiEventModelImpl> get copyWith =>

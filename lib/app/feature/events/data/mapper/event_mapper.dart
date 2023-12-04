@@ -13,7 +13,6 @@ class EventMapper {
         text: model.text,
         placeUrl: model.placeUrl,
         time: DateFormat("dd-MM-yyyy hh:mm:ss").parse(model.time),
-        tags: model.tags,
-        teamId: model.teamId);
+        tags: model.tags);
   }
 }

@@ -15,7 +15,6 @@ _$ApiEventModelImpl _$$ApiEventModelImplFromJson(Map<String, dynamic> json) =>
       placeUrl: json['placeUrl'] as String,
       time: json['time'] as String,
       tags: (json['tags'] as List<dynamic>).map((e) => e as String).toList(),
-      teamId: json['teamId'] as String,
     );
 
 Map<String, dynamic> _$$ApiEventModelImplToJson(_$ApiEventModelImpl instance) =>
@@ -27,5 +26,4 @@ Map<String, dynamic> _$$ApiEventModelImplToJson(_$ApiEventModelImpl instance) =>
       'placeUrl': instance.placeUrl,
       'time': instance.time,
       'tags': instance.tags,
-      'teamId': instance.teamId,
     };

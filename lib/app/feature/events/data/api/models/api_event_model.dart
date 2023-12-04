@@ -12,7 +12,6 @@ class ApiEventModel with _$ApiEventModel {
     required String placeUrl,
     required String time,
     required List<String> tags,
-    required String teamId,
   }) = _ApiEventModel;
   factory ApiEventModel.fromJson(Map<String, dynamic> json) =>
       _$ApiEventModelFromJson(json);

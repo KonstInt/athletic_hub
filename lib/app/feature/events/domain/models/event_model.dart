@@ -11,6 +11,5 @@ class EventModel with _$EventModel {
     required String placeUrl,
     required DateTime time,
     required List<String> tags,
-    required String teamId,
   }) = _EventModel;
 }
