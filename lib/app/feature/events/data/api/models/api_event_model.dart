@@ -6,6 +6,7 @@ part 'api_event_model.g.dart';
 class ApiEventModel with _$ApiEventModel {
   const factory ApiEventModel({
     required String id,
+    required String idCreator,
     required String title,
     required String imagePath,
     required String text,

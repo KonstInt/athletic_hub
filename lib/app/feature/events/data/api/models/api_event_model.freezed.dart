@@ -21,6 +21,7 @@ ApiEventModel _$ApiEventModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ApiEventModel {
   String get id => throw _privateConstructorUsedError;
+  String get idCreator => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get imagePath => throw _privateConstructorUsedError;
   String get text => throw _privateConstructorUsedError;
@@ -42,6 +43,7 @@ abstract class $ApiEventModelCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
+      String idCreator,
       String title,
       String imagePath,
       String text,
@@ -64,6 +66,7 @@ class _$ApiEventModelCopyWithImpl<$Res, $Val extends ApiEventModel>
   @override
   $Res call({
     Object? id = null,
+    Object? idCreator = null,
     Object? title = null,
     Object? imagePath = null,
     Object? text = null,
@@ -75,6 +78,10 @@ class _$ApiEventModelCopyWithImpl<$Res, $Val extends ApiEventModel>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      idCreator: null == idCreator
+          ? _value.idCreator
+          : idCreator // ignore: cast_nullable_to_non_nullable
               as String,
       title: null == title
           ? _value.title
@@ -114,6 +121,7 @@ abstract class _$$ApiEventModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {String id,
+      String idCreator,
       String title,
       String imagePath,
       String text,
@@ -134,6 +142,7 @@ class __$$ApiEventModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? idCreator = null,
     Object? title = null,
     Object? imagePath = null,
     Object? text = null,
@@ -145,6 +154,10 @@ class __$$ApiEventModelImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      idCreator: null == idCreator
+          ? _value.idCreator
+          : idCreator // ignore: cast_nullable_to_non_nullable
               as String,
       title: null == title
           ? _value.title
@@ -179,6 +192,7 @@ class __$$ApiEventModelImplCopyWithImpl<$Res>
 class _$ApiEventModelImpl implements _ApiEventModel {
   const _$ApiEventModelImpl(
       {required this.id,
+      required this.idCreator,
       required this.title,
       required this.imagePath,
       required this.text,
@@ -192,6 +206,8 @@ class _$ApiEventModelImpl implements _ApiEventModel {
 
   @override
   final String id;
+  @override
+  final String idCreator;
   @override
   final String title;
   @override
@@ -212,7 +228,7 @@ class _$ApiEventModelImpl implements _ApiEventModel {
 
   @override
   String toString() {
-    return 'ApiEventModel(id: $id, title: $title, imagePath: $imagePath, text: $text, placeUrl: $placeUrl, time: $time, tags: $tags)';
+    return 'ApiEventModel(id: $id, idCreator: $idCreator, title: $title, imagePath: $imagePath, text: $text, placeUrl: $placeUrl, time: $time, tags: $tags)';
   }
 
   @override
@@ -221,6 +237,8 @@ class _$ApiEventModelImpl implements _ApiEventModel {
         (other.runtimeType == runtimeType &&
             other is _$ApiEventModelImpl &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.idCreator, idCreator) ||
+                other.idCreator == idCreator) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.imagePath, imagePath) ||
                 other.imagePath == imagePath) &&
@@ -233,8 +251,8 @@ class _$ApiEventModelImpl implements _ApiEventModel {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, imagePath, text,
-      placeUrl, time, const DeepCollectionEquality().hash(_tags));
+  int get hashCode => Object.hash(runtimeType, id, idCreator, title, imagePath,
+      text, placeUrl, time, const DeepCollectionEquality().hash(_tags));
 
   @JsonKey(ignore: true)
   @override
@@ -253,6 +271,7 @@ class _$ApiEventModelImpl implements _ApiEventModel {
 abstract class _ApiEventModel implements ApiEventModel {
   const factory _ApiEventModel(
       {required final String id,
+      required final String idCreator,
       required final String title,
       required final String imagePath,
       required final String text,
@@ -265,6 +284,8 @@ abstract class _ApiEventModel implements ApiEventModel {
 
   @override
   String get id;
+  @override
+  String get idCreator;
   @override
   String get title;
   @override

@@ -8,7 +8,7 @@ class ApiEventTeamModel with _$ApiEventTeamModel {
     required String name,
     required int capacity,
     required List<String> members,
-    required String teamId,
+    required String eventId,
   }) = _ApiEventTeamModel;
   factory ApiEventTeamModel.fromJson(Map<String, dynamic> json) => _$ApiEventTeamModelFromJson(json);
 }

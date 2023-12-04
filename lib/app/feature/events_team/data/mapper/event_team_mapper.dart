@@ -9,6 +9,6 @@ class EventTeamMapper {
         name: model.name,
         capacity: model.capacity,
         members: model.members,
-        teamId: model.teamId);
+        eventId: model.eventId);
   }
 }

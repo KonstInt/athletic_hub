@@ -8,6 +8,7 @@ class EventMapper {
   EventModel fromApi(ApiEventModel model) {
     return EventModel(
         id: model.id,
+        idCreator: model.idCreator,
         title: model.title,
         imagePath: model.imagePath,
         text: model.text,

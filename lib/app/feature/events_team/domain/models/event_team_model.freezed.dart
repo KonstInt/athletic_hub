@@ -20,7 +20,7 @@ mixin _$EventTeamModel {
   String get name => throw _privateConstructorUsedError;
   int get capacity => throw _privateConstructorUsedError;
   List<String> get members => throw _privateConstructorUsedError;
-  String get teamId => throw _privateConstructorUsedError;
+  String get eventId => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $EventTeamModelCopyWith<EventTeamModel> get copyWith =>
@@ -38,7 +38,7 @@ abstract class $EventTeamModelCopyWith<$Res> {
       String name,
       int capacity,
       List<String> members,
-      String teamId});
+      String eventId});
 }
 
 /// @nodoc
@@ -58,7 +58,7 @@ class _$EventTeamModelCopyWithImpl<$Res, $Val extends EventTeamModel>
     Object? name = null,
     Object? capacity = null,
     Object? members = null,
-    Object? teamId = null,
+    Object? eventId = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -77,9 +77,9 @@ class _$EventTeamModelCopyWithImpl<$Res, $Val extends EventTeamModel>
           ? _value.members
           : members // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      teamId: null == teamId
-          ? _value.teamId
-          : teamId // ignore: cast_nullable_to_non_nullable
+      eventId: null == eventId
+          ? _value.eventId
+          : eventId // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -98,7 +98,7 @@ abstract class _$$EventTeamModelImplCopyWith<$Res>
       String name,
       int capacity,
       List<String> members,
-      String teamId});
+      String eventId});
 }
 
 /// @nodoc
@@ -116,7 +116,7 @@ class __$$EventTeamModelImplCopyWithImpl<$Res>
     Object? name = null,
     Object? capacity = null,
     Object? members = null,
-    Object? teamId = null,
+    Object? eventId = null,
   }) {
     return _then(_$EventTeamModelImpl(
       id: null == id
@@ -135,9 +135,9 @@ class __$$EventTeamModelImplCopyWithImpl<$Res>
           ? _value._members
           : members // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      teamId: null == teamId
-          ? _value.teamId
-          : teamId // ignore: cast_nullable_to_non_nullable
+      eventId: null == eventId
+          ? _value.eventId
+          : eventId // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -151,7 +151,7 @@ class _$EventTeamModelImpl implements _EventTeamModel {
       required this.name,
       required this.capacity,
       required final List<String> members,
-      required this.teamId})
+      required this.eventId})
       : _members = members;
 
   @override
@@ -169,11 +169,11 @@ class _$EventTeamModelImpl implements _EventTeamModel {
   }
 
   @override
-  final String teamId;
+  final String eventId;
 
   @override
   String toString() {
-    return 'EventTeamModel(id: $id, name: $name, capacity: $capacity, members: $members, teamId: $teamId)';
+    return 'EventTeamModel(id: $id, name: $name, capacity: $capacity, members: $members, eventId: $eventId)';
   }
 
   @override
@@ -186,12 +186,12 @@ class _$EventTeamModelImpl implements _EventTeamModel {
             (identical(other.capacity, capacity) ||
                 other.capacity == capacity) &&
             const DeepCollectionEquality().equals(other._members, _members) &&
-            (identical(other.teamId, teamId) || other.teamId == teamId));
+            (identical(other.eventId, eventId) || other.eventId == eventId));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, id, name, capacity,
-      const DeepCollectionEquality().hash(_members), teamId);
+      const DeepCollectionEquality().hash(_members), eventId);
 
   @JsonKey(ignore: true)
   @override
@@ -207,7 +207,7 @@ abstract class _EventTeamModel implements EventTeamModel {
       required final String name,
       required final int capacity,
       required final List<String> members,
-      required final String teamId}) = _$EventTeamModelImpl;
+      required final String eventId}) = _$EventTeamModelImpl;
 
   @override
   String get id;
@@ -218,7 +218,7 @@ abstract class _EventTeamModel implements EventTeamModel {
   @override
   List<String> get members;
   @override
-  String get teamId;
+  String get eventId;
   @override
   @JsonKey(ignore: true)
   _$$EventTeamModelImplCopyWith<_$EventTeamModelImpl> get copyWith =>

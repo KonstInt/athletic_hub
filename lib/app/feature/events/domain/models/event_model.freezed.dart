@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$EventModel {
   String get id => throw _privateConstructorUsedError;
+  String get idCreator => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get imagePath => throw _privateConstructorUsedError;
   String get text => throw _privateConstructorUsedError;
@@ -37,6 +38,7 @@ abstract class $EventModelCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
+      String idCreator,
       String title,
       String imagePath,
       String text,
@@ -59,6 +61,7 @@ class _$EventModelCopyWithImpl<$Res, $Val extends EventModel>
   @override
   $Res call({
     Object? id = null,
+    Object? idCreator = null,
     Object? title = null,
     Object? imagePath = null,
     Object? text = null,
@@ -70,6 +73,10 @@ class _$EventModelCopyWithImpl<$Res, $Val extends EventModel>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      idCreator: null == idCreator
+          ? _value.idCreator
+          : idCreator // ignore: cast_nullable_to_non_nullable
               as String,
       title: null == title
           ? _value.title
@@ -109,6 +116,7 @@ abstract class _$$EventModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {String id,
+      String idCreator,
       String title,
       String imagePath,
       String text,
@@ -129,6 +137,7 @@ class __$$EventModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? idCreator = null,
     Object? title = null,
     Object? imagePath = null,
     Object? text = null,
@@ -140,6 +149,10 @@ class __$$EventModelImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      idCreator: null == idCreator
+          ? _value.idCreator
+          : idCreator // ignore: cast_nullable_to_non_nullable
               as String,
       title: null == title
           ? _value.title
@@ -174,6 +187,7 @@ class __$$EventModelImplCopyWithImpl<$Res>
 class _$EventModelImpl implements _EventModel {
   const _$EventModelImpl(
       {required this.id,
+      required this.idCreator,
       required this.title,
       required this.imagePath,
       required this.text,
@@ -184,6 +198,8 @@ class _$EventModelImpl implements _EventModel {
 
   @override
   final String id;
+  @override
+  final String idCreator;
   @override
   final String title;
   @override
@@ -204,7 +220,7 @@ class _$EventModelImpl implements _EventModel {
 
   @override
   String toString() {
-    return 'EventModel(id: $id, title: $title, imagePath: $imagePath, text: $text, placeUrl: $placeUrl, time: $time, tags: $tags)';
+    return 'EventModel(id: $id, idCreator: $idCreator, title: $title, imagePath: $imagePath, text: $text, placeUrl: $placeUrl, time: $time, tags: $tags)';
   }
 
   @override
@@ -213,6 +229,8 @@ class _$EventModelImpl implements _EventModel {
         (other.runtimeType == runtimeType &&
             other is _$EventModelImpl &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.idCreator, idCreator) ||
+                other.idCreator == idCreator) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.imagePath, imagePath) ||
                 other.imagePath == imagePath) &&
@@ -224,8 +242,8 @@ class _$EventModelImpl implements _EventModel {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, imagePath, text,
-      placeUrl, time, const DeepCollectionEquality().hash(_tags));
+  int get hashCode => Object.hash(runtimeType, id, idCreator, title, imagePath,
+      text, placeUrl, time, const DeepCollectionEquality().hash(_tags));
 
   @JsonKey(ignore: true)
   @override
@@ -237,6 +255,7 @@ class _$EventModelImpl implements _EventModel {
 abstract class _EventModel implements EventModel {
   const factory _EventModel(
       {required final String id,
+      required final String idCreator,
       required final String title,
       required final String imagePath,
       required final String text,
@@ -246,6 +265,8 @@ abstract class _EventModel implements EventModel {
 
   @override
   String get id;
+  @override
+  String get idCreator;
   @override
   String get title;
   @override

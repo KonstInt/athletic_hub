@@ -14,7 +14,7 @@ _$ApiEventTeamModelImpl _$$ApiEventTeamModelImplFromJson(
       capacity: json['capacity'] as int,
       members:
           (json['members'] as List<dynamic>).map((e) => e as String).toList(),
-      teamId: json['teamId'] as String,
+      eventId: json['eventId'] as String,
     );
 
 Map<String, dynamic> _$$ApiEventTeamModelImplToJson(
@@ -24,5 +24,5 @@ Map<String, dynamic> _$$ApiEventTeamModelImplToJson(
       'name': instance.name,
       'capacity': instance.capacity,
       'members': instance.members,
-      'teamId': instance.teamId,
+      'eventId': instance.eventId,
     };

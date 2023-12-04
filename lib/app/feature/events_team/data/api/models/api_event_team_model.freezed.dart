@@ -24,7 +24,7 @@ mixin _$ApiEventTeamModel {
   String get name => throw _privateConstructorUsedError;
   int get capacity => throw _privateConstructorUsedError;
   List<String> get members => throw _privateConstructorUsedError;
-  String get teamId => throw _privateConstructorUsedError;
+  String get eventId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +43,7 @@ abstract class $ApiEventTeamModelCopyWith<$Res> {
       String name,
       int capacity,
       List<String> members,
-      String teamId});
+      String eventId});
 }
 
 /// @nodoc
@@ -63,7 +63,7 @@ class _$ApiEventTeamModelCopyWithImpl<$Res, $Val extends ApiEventTeamModel>
     Object? name = null,
     Object? capacity = null,
     Object? members = null,
-    Object? teamId = null,
+    Object? eventId = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -82,9 +82,9 @@ class _$ApiEventTeamModelCopyWithImpl<$Res, $Val extends ApiEventTeamModel>
           ? _value.members
           : members // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      teamId: null == teamId
-          ? _value.teamId
-          : teamId // ignore: cast_nullable_to_non_nullable
+      eventId: null == eventId
+          ? _value.eventId
+          : eventId // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -103,7 +103,7 @@ abstract class _$$ApiEventTeamModelImplCopyWith<$Res>
       String name,
       int capacity,
       List<String> members,
-      String teamId});
+      String eventId});
 }
 
 /// @nodoc
@@ -121,7 +121,7 @@ class __$$ApiEventTeamModelImplCopyWithImpl<$Res>
     Object? name = null,
     Object? capacity = null,
     Object? members = null,
-    Object? teamId = null,
+    Object? eventId = null,
   }) {
     return _then(_$ApiEventTeamModelImpl(
       id: null == id
@@ -140,9 +140,9 @@ class __$$ApiEventTeamModelImplCopyWithImpl<$Res>
           ? _value._members
           : members // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      teamId: null == teamId
-          ? _value.teamId
-          : teamId // ignore: cast_nullable_to_non_nullable
+      eventId: null == eventId
+          ? _value.eventId
+          : eventId // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -156,7 +156,7 @@ class _$ApiEventTeamModelImpl implements _ApiEventTeamModel {
       required this.name,
       required this.capacity,
       required final List<String> members,
-      required this.teamId})
+      required this.eventId})
       : _members = members;
 
   factory _$ApiEventTeamModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -177,11 +177,11 @@ class _$ApiEventTeamModelImpl implements _ApiEventTeamModel {
   }
 
   @override
-  final String teamId;
+  final String eventId;
 
   @override
   String toString() {
-    return 'ApiEventTeamModel(id: $id, name: $name, capacity: $capacity, members: $members, teamId: $teamId)';
+    return 'ApiEventTeamModel(id: $id, name: $name, capacity: $capacity, members: $members, eventId: $eventId)';
   }
 
   @override
@@ -194,13 +194,13 @@ class _$ApiEventTeamModelImpl implements _ApiEventTeamModel {
             (identical(other.capacity, capacity) ||
                 other.capacity == capacity) &&
             const DeepCollectionEquality().equals(other._members, _members) &&
-            (identical(other.teamId, teamId) || other.teamId == teamId));
+            (identical(other.eventId, eventId) || other.eventId == eventId));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, name, capacity,
-      const DeepCollectionEquality().hash(_members), teamId);
+      const DeepCollectionEquality().hash(_members), eventId);
 
   @JsonKey(ignore: true)
   @override
@@ -223,7 +223,7 @@ abstract class _ApiEventTeamModel implements ApiEventTeamModel {
       required final String name,
       required final int capacity,
       required final List<String> members,
-      required final String teamId}) = _$ApiEventTeamModelImpl;
+      required final String eventId}) = _$ApiEventTeamModelImpl;
 
   factory _ApiEventTeamModel.fromJson(Map<String, dynamic> json) =
       _$ApiEventTeamModelImpl.fromJson;
@@ -237,7 +237,7 @@ abstract class _ApiEventTeamModel implements ApiEventTeamModel {
   @override
   List<String> get members;
   @override
-  String get teamId;
+  String get eventId;
   @override
   @JsonKey(ignore: true)
   _$$ApiEventTeamModelImplCopyWith<_$ApiEventTeamModelImpl> get copyWith =>

@@ -8,6 +8,6 @@ class EventTeamModel with _$EventTeamModel {
     required String name,
     required int capacity,
     required List<String> members,
-    required String teamId,
+    required String eventId,
   }) = _EventTeamModel;
 }

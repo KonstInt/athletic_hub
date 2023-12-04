@@ -5,6 +5,7 @@ part 'event_model.freezed.dart';
 class EventModel with _$EventModel {
   const factory EventModel({
     required String id,
+    required String idCreator,
     required String title,
     required String imagePath,
     required String text,
