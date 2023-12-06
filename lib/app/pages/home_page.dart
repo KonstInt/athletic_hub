@@ -1,4 +1,8 @@
+import 'package:athletic_hub/app/feature/events/presentation/event_card.dart';
+import 'package:athletic_hub/app/feature/events/data/api/service/api_remote_event_service.dart';
 import 'package:flutter/material.dart';
+
+import '../feature/events/presentation/event_list.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -56,6 +60,9 @@ class HomePage extends StatelessWidget {
             ),
           ),
         ),
+        body: Center(
+          child: EventList())
+
     ) ;
   }
 }

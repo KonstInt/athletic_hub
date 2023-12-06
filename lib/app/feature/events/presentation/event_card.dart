@@ -18,7 +18,7 @@ class EventCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 1320.0,
+      width:  1320.0,
       height: 365.0,
       decoration: BoxDecoration(
         color: const Color(0xFFE2E2E2),

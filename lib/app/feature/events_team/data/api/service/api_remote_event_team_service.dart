@@ -10,21 +10,21 @@ class ApiRemoteEventTeamService {
       name: "Team One",
       capacity: 5,
       members: ["John", "Jane", "Bob"],
-      eventId: "event1",
+      eventId: "1",
     ),
     const ApiEventTeamModel(
       id: "team2",
       name: "Team Two",
       capacity: 4,
       members: ["Alice", "Charlie", "Dave"],
-      eventId: "event1",
+      eventId: "1",
     ),
     const ApiEventTeamModel(
       id: "team3",
       name: "Team Three",
       capacity: 3,
       members: ["Eve", "Frank"],
-      eventId: "event2",
+      eventId: "1",
     ),
   ];
   DioRemoteService dioRemoteService;
