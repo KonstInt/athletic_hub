@@ -1,5 +1,5 @@
-import 'dart:html';
-
+import 'package:athletic_hub/app/util/themes/extensions/build_context_ext.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:athletic_hub/app/feature/events_team/domain/bloc/event_team_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -9,7 +9,6 @@ import 'package:intl/intl.dart';
 import 'tag_widget.dart';
 import '../../events_team/presentation/events_team_list.dart';
 import "../domain/models/event_model.dart";
-import '';
 
 class EventCard extends StatelessWidget {
   final EventModel eventModel;
@@ -52,9 +51,10 @@ class EventCard extends StatelessWidget {
                   const SizedBox(width: 12,),
                   Text(
                     DateFormat("HH:mm").format(eventModel.time),
-                    style: const TextStyle(
-                      fontSize: 12.0,
-                      fontFamily: 'Montserrat',),
+                    style: GoogleFonts.montserrat(
+                      fontSize: 14.0,
+                      color: context.colors.black
+                      ),
                   ),
                 ],
               ),
@@ -68,9 +68,10 @@ class EventCard extends StatelessWidget {
                   const SizedBox(width: 12,),
                   Text(
                     DateFormat('dd.MM.yyyy').format(eventModel.time),
-                    style: const TextStyle(
-                      fontSize: 12.0,
-                      fontFamily: 'Montserrat',),
+                    style: GoogleFonts.montserrat(
+                      fontSize: 14.0,
+                      color: context.colors.black
+                      ),
                   ),
                 ],
               ),
@@ -86,10 +87,11 @@ class EventCard extends StatelessWidget {
 
                     },
                     style: TextButton.styleFrom(
-                      fixedSize: const Size(129, 0),
-                      textStyle: const TextStyle(
-                        fontFamily: 'Montserrat',
-                        fontSize: 12.0,
+                      alignment: Alignment.centerLeft,
+                      fixedSize: const Size(160, 0),
+                      textStyle: GoogleFonts.montserrat(
+                      fontSize: 14.0,
+                      color: context.colors.black
                       ),
                     ),
                     child: const Text('Показать на карте'),
@@ -104,13 +106,13 @@ class EventCard extends StatelessWidget {
               const SizedBox(height: 33),
               Container(
                 width: 508,
-                height: 25,
+                height: 26,
                 child: Text(
                   eventModel.title,
                   textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontFamily: 'Montserrat',
-                    fontSize: 24,
+                  style: GoogleFonts.montserrat(
+                    fontSize: 24.0,
+                    color: context.colors.black
                   ),
                 ),
               ),
@@ -121,10 +123,10 @@ class EventCard extends StatelessWidget {
                   height: 140,
                   child: Text(
                     eventModel.text,
-                    style: const TextStyle(
-                      fontFamily: 'Montserrat',
-                      fontSize: 16,
-                    ),
+                    style: GoogleFonts.montserrat(
+                      fontSize: 14.0,
+                      color: context.colors.black
+                      ),
                     maxLines: 9,
                     overflow: TextOverflow.ellipsis,
                   ),

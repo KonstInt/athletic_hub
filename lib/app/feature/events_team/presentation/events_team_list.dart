@@ -1,3 +1,4 @@
+import 'package:google_fonts/google_fonts.dart';
 import 'package:athletic_hub/app/util/themes/extensions/build_context_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -73,12 +74,10 @@ class _JoinTeamListState extends State<JoinTeamList> {
                           height: 27.39,
                           child: Text(
                             teamList[index].name,
-                            style: const TextStyle(
+                            style: GoogleFonts.montserrat(
+                              fontSize: 20.0,
                               color: Color(0xFF367EEA),
-                              fontFamily: 'Montserrat',
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500,
-                            ),
+                              ),
                           ),
                         ),
                         const SizedBox(width: 4),
@@ -86,12 +85,11 @@ class _JoinTeamListState extends State<JoinTeamList> {
                         const SizedBox(width: 11),
                         Text(
                           '${teamList[index].members.length}/${teamList[index].capacity}',
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontFamily: 'Montserrat',
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                          ),
+                          style: GoogleFonts.montserrat(
+                              fontSize: 20.0,
+                              color: context.colors.black,
+                              fontWeight: FontWeight.w500,
+                              ), 
                         ),
                       ],
                     ),
@@ -132,11 +130,11 @@ class _JoinTeamListState extends State<JoinTeamList> {
             style: TextButton.styleFrom(
               primary: Colors.black,
             ),
-            child: const Text('участвую',
-              style: TextStyle(
-                  fontFamily:'Montserrat',
-                  fontSize: 20
-              ),
+            child:  Text('участвую',
+              style: GoogleFonts.montserrat(
+                fontSize: 20.0,
+                color: context.colors.black,
+                ),
             ),
           ),
         ),

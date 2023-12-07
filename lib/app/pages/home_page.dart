@@ -1,5 +1,4 @@
-import 'package:athletic_hub/app/feature/events/presentation/event_card.dart';
-import 'package:athletic_hub/app/feature/events/data/api/service/api_remote_event_service.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 
 import '../feature/events/presentation/event_list.dart';
@@ -28,10 +27,11 @@ class HomePage extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Text(
+                Text(
                   'ATHLETIC-HUB ',
-                  style: TextStyle(
-                    fontFamily: 'Montserrat', fontSize: 36,
+                  style: GoogleFonts.montserrat
+                   (
+                    fontSize: 36,
                     fontWeight: FontWeight.w500,
                     height: 1.2175,
                     color: Color(0xff000000),
@@ -44,10 +44,9 @@ class HomePage extends StatelessWidget {
                     onPressed: () {
 
                     },
-                    child: const Text(
+                    child: Text(
                       'войти',
-                      style: TextStyle(
-                        fontFamily: 'Montserrat',
+                      style: GoogleFonts.montserrat(
                         fontSize: 20,
                         fontWeight: FontWeight.w500,
                         height: 1.2175,
