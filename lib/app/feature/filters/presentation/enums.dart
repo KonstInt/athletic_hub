@@ -1,1 +1,1 @@
-enum Filtres { football, basketball, voleyball, tennis }
+enum Filters { football, basketball, voleyball, tennis }
