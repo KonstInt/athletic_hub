@@ -1,6 +1,10 @@
+import 'package:athletic_hub/app/feature/registration/domain/bloc/authorization_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../domain/models/authorization_model.dart';
 
 class Registration extends StatefulWidget {
   const Registration({super.key});
@@ -165,7 +169,11 @@ class _RegistrationState extends State<Registration> {
   Widget RegistrationBotton(BuildContext){
     return ElevatedButton(
         onPressed: isUnlockButton() ?
-        (){}:
+        (){
+          Navigator.of(context).pop();
+          AuthorizationModel auth = AuthorizationModel(login: login, password: password);
+          context.read<AuthorizationBloc>().add(AuthEvent(auth));
+        }:
         null,
         child: Text(
           'ЗАРЕГИСТРИРОВАТЬСЯ',

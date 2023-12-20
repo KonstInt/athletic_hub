@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../domain/bloc/authorization_bloc.dart';
+import '../domain/models/authorization_model.dart';
 
 class Entering extends StatefulWidget {
   const Entering({super.key});
@@ -115,21 +119,25 @@ class _EnteringState extends State<Entering> {
   Widget EnterBotton(BuildContext){
     return ElevatedButton(
       onPressed: isUnlockButton() ?
-          (){}:
+          (){
+            Navigator.of(context).pop();
+            AuthorizationModel auth = AuthorizationModel(login: login, password: password);
+            context.read<AuthorizationBloc>().add(AuthEvent(auth));
+          }:
       null,
+      style: ElevatedButton.styleFrom(
+          backgroundColor: const Color(0xffededed),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          fixedSize: const Size(220, 60)
+      ),
       child: Text(
         'ВОЙТИ',
         style: GoogleFonts.montserrat(
           fontSize: 26,
           fontWeight: FontWeight.w500,
         ),
-      ),
-      style: ElevatedButton.styleFrom(
-          backgroundColor: Color(0xffededed),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-          fixedSize: Size(220, 60)
       ),
     );
   }

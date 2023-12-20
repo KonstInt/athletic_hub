@@ -1,8 +1,5 @@
-import 'dart:js_interop';
-
 import 'package:athletic_hub/app/pages/registration_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 
@@ -44,23 +41,101 @@ class HomePage extends StatelessWidget {
                         color: const Color(0xff000000),
                       ),
                     )),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) {
-                            return RegistrationPage();
-                          }));
-                    },
-                    child: Text(
-                      'войти',
-                      style: GoogleFonts.montserrat(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500,
-                        height: 1.2175,
-                        color: const Color(0xff1f2029),
+                BlocBuilder<AuthorizationBloc, AuthorizationState>(
+                  builder: (context, state) {
+                    return switch(state){
+                    final  AuthorizationInitial _ => TextButton(
+                      onPressed: () {
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) {
+                              return RegistrationPage();
+                            }));
+                      },
+                      child: Text(
+                        'войти',
+                        style: GoogleFonts.montserrat(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                          height: 1.2175,
+                          color: const Color(0xff1f2029),
+                        ),
                       ),
                     ),
-                  ),
+
+                    final AuthorizationEnter _ => TextButton(
+                      onPressed: () {
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) {
+                              return RegistrationPage();
+                            }));
+                      },
+                      child: Text(
+                        'войти',
+                        style: GoogleFonts.montserrat(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                          height: 1.2175,
+                          color: const Color(0xff1f2029),
+                        ),
+                      ),
+                    ),
+
+                    final AuthorizationReg _ => TextButton(
+                      onPressed: () {
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) {
+                              return RegistrationPage();
+                            }));
+                      },
+                      child: Text(
+                        'войти',
+                        style: GoogleFonts.montserrat(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                          height: 1.2175,
+                          color: const Color(0xff1f2029),
+                        ),
+                      ),
+                    ),
+
+                    final AuthorizationSuccess state => TextButton(
+                      onPressed: () {
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) {
+                              return RegistrationPage();
+                            }));
+                      },
+                      child: Text(
+                        state.auth.login,
+                        style: GoogleFonts.montserrat(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                          height: 1.2175,
+                          color: const Color(0xff1f2029),
+                        ),
+                      ),
+                    ),
+                    final AuthorizationFailure _ => TextButton(
+                      onPressed: () {
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) {
+                              return RegistrationPage();
+                            }));
+                      },
+                      child: Text(
+                        'не удалось войти',
+                        style: GoogleFonts.montserrat(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                          height: 1.2175,
+                          color: const Color(0xff1f2029),
+                        ),
+                      ),
+                    ),
+
+                    };
+                  },
+                ),
               ],
             ),
           ),
