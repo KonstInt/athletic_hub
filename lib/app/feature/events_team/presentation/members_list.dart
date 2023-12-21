@@ -19,7 +19,7 @@ class MembersList extends StatelessWidget {
         itemBuilder: (context, index) {
           return ListTile(
             title: Text(
-              '${members[index]}',
+              members[index],
               style: const TextStyle(
                 fontSize: 12.0,
                 fontFamily: 'Montserrat',

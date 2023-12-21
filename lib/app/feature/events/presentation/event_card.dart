@@ -1,4 +1,5 @@
 import 'package:athletic_hub/app/util/themes/extensions/build_context_ext.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:athletic_hub/app/feature/events_team/domain/bloc/event_team_bloc.dart';
 import 'package:flutter/material.dart';
@@ -12,87 +13,80 @@ import "../domain/models/event_model.dart";
 
 class EventCard extends StatelessWidget {
   final EventModel eventModel;
-  const EventCard({required this.eventModel});
+  const EventCard({super.key, required this.eventModel});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width:  1320.0,
-      height: 365.0,
+      width: double.infinity,
       decoration: BoxDecoration(
         color: const Color(0xFFE2E2E2),
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(10.r),
       ),
-      padding: const EdgeInsets.only(bottom: 25.0),
+      padding: EdgeInsets.symmetric(vertical: 50.h, horizontal: 30.w),
       child: Row(
         children: [
-          const SizedBox(width: 60.0),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 56),
               ClipRRect(
                 borderRadius: BorderRadius.circular(10.0),
                 child: CachedNetworkImage(
-                  width: 200,
-                  height: 200,
+                  width: 400.r,
+                  height: 400.r,
                   imageUrl: eventModel.imagePath,
-                  placeholder: (context, url) => const CircularProgressIndicator(),
+                  placeholder: (context, url) =>
+                      const CircularProgressIndicator(),
                   fit: BoxFit.cover,
                 ),
               ),
-              const SizedBox(height: 6,),
+              SizedBox(
+                height: 15.w,
+              ),
               Row(
                 children: [
                   const Icon(
                     Icons.access_time,
                     size: 16,
                   ),
-                  const SizedBox(width: 12,),
+                  SizedBox(
+                    width: 12.w,
+                  ),
                   Text(
                     DateFormat("HH:mm").format(eventModel.time),
                     style: GoogleFonts.montserrat(
-                      fontSize: 14.0,
-                      color: context.colors.black
-                      ),
+                        fontSize: 14.0, color: context.colors.black),
                   ),
                 ],
               ),
-              const SizedBox(height: 6,),
+              SizedBox(
+                height: 6.w,
+              ),
               Row(
                 children: [
-                  const Icon(
+                  Icon(
                     Icons.date_range_sharp,
-                    size: 16,
+                    size: 16.w,
                   ),
-                  const SizedBox(width: 12,),
+                  SizedBox(
+                    width: 12.h,
+                  ),
                   Text(
                     DateFormat('dd.MM.yyyy').format(eventModel.time),
                     style: GoogleFonts.montserrat(
-                      fontSize: 14.0,
-                      color: context.colors.black
-                      ),
+                        fontSize: 14.0, color: context.colors.black),
                   ),
                 ],
               ),
-
               Row(
                 children: [
-                  const Icon(
-                      Icons.location_on_outlined,
-                      size:16
-                  ),
+                  Icon(Icons.location_on_outlined, size: 16.h),
                   TextButton(
-                    onPressed: () {
-
-                    },
+                    onPressed: () {},
                     style: TextButton.styleFrom(
                       alignment: Alignment.centerLeft,
-                      fixedSize: const Size(160, 0),
                       textStyle: GoogleFonts.montserrat(
-                      fontSize: 14.0,
-                      color: context.colors.black
-                      ),
+                          fontSize: 14.0, color: context.colors.black),
                     ),
                     child: const Text('Показать на карте'),
                   ),
@@ -100,46 +94,38 @@ class EventCard extends StatelessWidget {
               )
             ],
           ),
-          const SizedBox(width: 57,),
-          Column(
-            children: [
-              const SizedBox(height: 33),
-              Container(
-                width: 508,
-                height: 26,
-                child: Text(
+          SizedBox(
+            width: 57.w,
+          ),
+          Expanded(
+            child: Column(
+              children: [
+                Text(
                   eventModel.title,
                   textAlign: TextAlign.center,
                   style: GoogleFonts.montserrat(
-                    fontSize: 24.0,
-                    color: context.colors.black
-                  ),
+                      fontSize: 24.0, color: context.colors.black),
                 ),
-              ),
-              const SizedBox(height: 6,),
-              Expanded(
-                child: Container(
-                  width: 508,
-                  height: 140,
+                const SizedBox(
+                  height: 6,
+                ),
+                Expanded(
                   child: Text(
                     eventModel.text,
                     style: GoogleFonts.montserrat(
-                      fontSize: 14.0,
-                      color: context.colors.black
-                      ),
+                        fontSize: 14.0, color: context.colors.black),
                     maxLines: 9,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
-              ),
-              TagWidget(tags: eventModel.tags),
-            ],
+                TagWidget(tags: eventModel.tags),
+              ],
+            ),
           ),
-          const SizedBox(width: 105,),
-
           BlocProvider(
-          create: (context) => GetIt.I<EventTeamBloc>()..add(EventTeamEvent.loadTeams(eventId: this.eventModel.id)),
-          child: JoinTeamList(eventId: this.eventModel.id),
+            create: (context) => GetIt.I<EventTeamBloc>()
+              ..add(EventTeamEvent.loadTeams(eventId: eventModel.id)),
+            child: JoinTeamList(eventId: eventModel.id),
           ),
         ],
       ),

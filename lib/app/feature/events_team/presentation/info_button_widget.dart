@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'members_list.dart';
+
 class InfoButton extends StatelessWidget {
   final List<String> members;
 
-  InfoButton({super.key, required this.members});
+  const InfoButton({super.key, required this.members});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class InfoButton extends StatelessWidget {
             left: offset.dx,
             child: Material(
               color: Colors.transparent,
-              child: MembersList( members: members),
+              child: MembersList(members: members),
             ),
           ),
         );
@@ -30,7 +31,6 @@ class InfoButton extends StatelessWidget {
           overlayEntry.remove();
         });
       },
-
       child: const Padding(
         padding: EdgeInsets.all(8.0),
         child: Icon(

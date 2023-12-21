@@ -2,6 +2,7 @@ import 'package:athletic_hub/app/feature/events_team/data/api/service/api_remote
 import 'package:athletic_hub/app/feature/events_team/data/mapper/event_team_mapper.dart';
 import 'package:athletic_hub/app/feature/events_team/domain/models/event_team_model.dart';
 import 'package:injectable/injectable.dart';
+
 @singleton
 class EventTeamUtil {
   ApiRemoteEventTeamService service;
