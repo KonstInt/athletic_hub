@@ -22,7 +22,8 @@ class EventListBloc extends Bloc<EventListEvent, EventListState> {
   }
 
   FutureOr<void> start(EventListEvent event, Emitter<EventListState> emit) {}
-  FutureOr<void> load(EventListEvent event, Emitter<EventListState> emit) async {
+  FutureOr<void> load(
+      EventListEvent event, Emitter<EventListState> emit) async {
     emit(const EventListState.loading());
     try {
       final result = await repository.getEvents();

@@ -3,11 +3,47 @@ import 'package:athletic_hub/app/feature/events/data/api/models/api_event_model.
 import 'package:injectable/injectable.dart';
 
 @singleton
-class ApiRemoteEventService{
+class ApiRemoteEventService {
   DioRemoteService dioRemoteService;
   ApiRemoteEventService(this.dioRemoteService);
 
-  Future<List<ApiEventModel>> getEvents(){
-    throw UnimplementedError();
+  final List<ApiEventModel> Events = [
+    const ApiEventModel(
+      id: '1',
+      idCreator: 'creator1',
+      title: 'Event 1',
+      imagePath:
+          'https://masterpiecer-images.s3.yandex.net/578a963b594a11ee927d363fac71b015:upscaled',
+      text: 'Description for Event 1',
+      placeUrl: 'place_url_1',
+      time: '1974-03-20 00:00:00.000',
+      tags: ['tag1', 'tag2'],
+    ),
+    const ApiEventModel(
+      id: '2',
+      idCreator: 'creator1',
+      title: 'Event 1',
+      imagePath:
+          'https://masterpiecer-images.s3.yandex.net/578a963b594a11ee927d363fac71b015:upscaled',
+      text: 'Description for Event 1',
+      placeUrl: 'place_url_1',
+      time: '1974-03-20 00:00:00.000',
+      tags: ['tag1', 'tag2'],
+    ),
+    const ApiEventModel(
+      id: '3',
+      idCreator: 'creator1',
+      title: 'Event 1',
+      imagePath:
+          'https://masterpiecer-images.s3.yandex.net/578a963b594a11ee927d363fac71b015:upscaled',
+      text: 'Description for Event 1',
+      placeUrl: 'place_url_1',
+      time: '1974-03-20 00:00:00.000',
+      tags: ['tag1', 'tag2'],
+    ),
+  ];
+
+  Future<List<ApiEventModel>> getEvents() async {
+    return Events;
   }
 }

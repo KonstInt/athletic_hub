@@ -12,12 +12,11 @@ class FilterWidget extends StatelessWidget {
 
   final String title;
 
-  void _apply() {}
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
+      padding: const EdgeInsets.symmetric(vertical: 50),
       child: Align(
         alignment: Alignment.centerRight,
         child: Container(
@@ -54,7 +53,6 @@ class FilterWidget extends StatelessWidget {
                 const Spacer(),
                 ElevatedButton(
                   onPressed: () {
-                    _apply();
                   },
                   child: Text(
                     'Применить',

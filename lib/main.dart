@@ -8,6 +8,10 @@ import 'package:flutter_web_plugins/url_strategy.dart';
 void main() async {
   usePathUrlStrategy();
   configureDependencies();
+
   WidgetsFlutterBinding.ensureInitialized();
+// setWindowMinSize(const Size(400, 300));
+//     setWindowMaxSize(Size.infinite);
+
   runApp(const App());
 }
