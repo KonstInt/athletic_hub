@@ -1,9 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+
 @singleton
-class DioRemoteService{
+class DioRemoteService {
   late final Dio dio;
-   DioRemoteService(){
+  DioRemoteService() {
     dio = Dio(BaseOptions(connectTimeout: const Duration(seconds: 10)));
-   } 
+  }
 }

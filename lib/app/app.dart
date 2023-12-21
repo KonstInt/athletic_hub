@@ -9,7 +9,7 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const webSize = Size(1200, 1900); 
+    const webSize = Size(1200, 1900);
     return ScreenUtilInit(
         designSize: webSize,
         minTextAdapt: true,
