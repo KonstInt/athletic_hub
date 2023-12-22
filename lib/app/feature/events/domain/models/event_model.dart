@@ -13,5 +13,4 @@ class EventModel with _$EventModel {
     required DateTime time,
     required List<String> tags,
   }) = _EventModel;
-
 }

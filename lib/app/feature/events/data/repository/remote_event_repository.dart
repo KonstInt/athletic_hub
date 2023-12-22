@@ -4,7 +4,7 @@ import 'package:athletic_hub/app/feature/events/domain/repository/event_reposito
 import 'package:injectable/injectable.dart';
 
 @Singleton(as: EventRepository)
-class RemoteEventRepository extends EventRepository{
+class RemoteEventRepository extends EventRepository {
   final RemoteEventUtil util;
   RemoteEventRepository(this.util);
 
@@ -12,5 +12,4 @@ class RemoteEventRepository extends EventRepository{
   Future<List<EventModel>> getEvents() {
     return util.getEvents();
   }
-
 }

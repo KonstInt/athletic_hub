@@ -59,7 +59,7 @@ class _EventCreateState extends State<EventCreate> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(height: 69, width: 20, child: timeCreate(context)),
+              SizedBox(height: 50, width: 140, child: timeCreate(context)),
             ],
           ),
           SizedBox(
@@ -83,7 +83,7 @@ class _EventCreateState extends State<EventCreate> {
         decoration: InputDecoration(
             filled: true,
             fillColor: const Color(0xe5ffffff),
-            hintText: 'ЧАСЫ:МИНУТЫ',
+            hintText: 'НАЗВАНИЕ',
             hintStyle: GoogleFonts.montserrat(
               fontSize: 26,
               fontWeight: FontWeight.w300,
@@ -115,9 +115,9 @@ class _EventCreateState extends State<EventCreate> {
         decoration: InputDecoration(
             filled: true,
             fillColor: const Color(0xe5ffffff),
-            hintText: 'НАЗВАНИЕ',
+            hintText: 'ЧАСЫ:МИНУТЫ',
             hintStyle: GoogleFonts.montserrat(
-              fontSize: 26,
+              fontSize: 16,
               fontWeight: FontWeight.w300,
             ),
             hoverColor: Colors.transparent,

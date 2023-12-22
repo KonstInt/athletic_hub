@@ -118,7 +118,7 @@ class EventCreatPage extends StatelessWidget {
           SliverToBoxAdapter(
             child:  Column(
                 children: [
-                  SizedBox(height: 50,),
+                  SizedBox(height: 50.h,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -132,7 +132,7 @@ class EventCreatPage extends StatelessWidget {
                         ),
                       ),
                     ],),
-                  SizedBox(height: 120,),
+                  SizedBox(height: 120.h,),
                   EventCreate(),
                 ]
             ),
