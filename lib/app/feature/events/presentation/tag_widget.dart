@@ -21,7 +21,7 @@ class _TagWidgetState extends State<TagWidget> {
         return Container(
           padding: const EdgeInsets.all(8.0),
           decoration: BoxDecoration(
-            color: const Color(0xFFCCCCCC),
+            color: const Color(0xffc5c4cb),
             borderRadius: BorderRadius.circular(10.0),
           ),
           child: Text(item,

@@ -18,7 +18,7 @@ class EventCreatPage extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(165, 25, 165, 25),
           width: double.infinity,
           decoration: const BoxDecoration(
-            color: Color(0xffa5fddd),
+            color: Colors.black,
             boxShadow: [
               BoxShadow(
                 color: Color(0x3f000000),
@@ -37,7 +37,7 @@ class EventCreatPage extends StatelessWidget {
                       fontSize: 36,
                       fontWeight: FontWeight.w500,
                       height: 1.2175,
-                      color: const Color(0xff000000),
+                      color: Colors.white,
                     ),
                   )),
               BlocBuilder<AuthorizationBloc, AuthorizationState>(
@@ -51,7 +51,7 @@ class EventCreatPage extends StatelessWidget {
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
                           height: 1.2175,
-                          color: const Color(0xff1f2029),
+                          color: Colors.white,
                         ),
                       ),
                     ),
@@ -63,7 +63,7 @@ class EventCreatPage extends StatelessWidget {
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
                           height: 1.2175,
-                          color: const Color(0xff1f2029),
+                          color: Colors.white,
                         ),
                       ),
                     ),
@@ -75,7 +75,7 @@ class EventCreatPage extends StatelessWidget {
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
                           height: 1.2175,
-                          color: const Color(0xff1f2029),
+                          color: Colors.white,
                         ),
                       ),
                     ),
@@ -89,7 +89,7 @@ class EventCreatPage extends StatelessWidget {
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
                           height: 1.2175,
-                          color: const Color(0xff1f2029),
+                          color: Colors.white,
                         ),
                       ),
                     ),
@@ -101,7 +101,7 @@ class EventCreatPage extends StatelessWidget {
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
                           height: 1.2175,
-                          color: const Color(0xff1f2029),
+                          color: Colors.white,
                         ),
                       ),
                     ),
@@ -113,31 +113,34 @@ class EventCreatPage extends StatelessWidget {
         ),
       ),
 
-      body: CustomScrollView(
-        slivers:[
-          SliverToBoxAdapter(
-            child:  Column(
-                children: [
-                  SizedBox(height: 50.h,),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "СОЗДАЙТЕ МЕРОПРИЯТИЕ",
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.montserrat(
-                          fontSize: 55,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xFF1F2029),
+      body: Container(
+        color:  Color(0xffcccccc),
+        child: CustomScrollView(
+          slivers:[
+            SliverToBoxAdapter(
+              child:  Column(
+                  children: [
+                    SizedBox(height: 50.h,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "СОЗДАЙТЕ МЕРОПРИЯТИЕ",
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.montserrat(
+                            fontSize: 55,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black,
+                          ),
                         ),
-                      ),
-                    ],),
-                  SizedBox(height: 120.h,),
-                  EventCreate(),
-                ]
-            ),
-          )
-        ]
+                      ],),
+                    SizedBox(height: 120.h,),
+                    EventCreate(),
+                  ]
+              ),
+            )
+          ]
+        ),
       )
 
 

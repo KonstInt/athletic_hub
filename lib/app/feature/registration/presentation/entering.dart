@@ -126,7 +126,7 @@ class _EnteringState extends State<Entering> {
           }:
       null,
       style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xffededed),
+          backgroundColor: Color(0xff0bffa6),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),

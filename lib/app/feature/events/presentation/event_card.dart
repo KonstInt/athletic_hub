@@ -20,7 +20,7 @@ class EventCard extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: const Color(0xFFE2E2E2),
+        color: const Color(0xffe2e2e2),
         borderRadius: BorderRadius.circular(10.r),
       ),
       padding: EdgeInsets.symmetric(vertical: 50.h, horizontal: 30.w),
@@ -41,13 +41,13 @@ class EventCard extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 15.w,
+                height: 15.h,
               ),
               Row(
                 children: [
-                  const Icon(
+                  Icon(
                     Icons.access_time,
-                    size: 16,
+                    size: 16.sp,
                   ),
                   SizedBox(
                     width: 12.w,
@@ -60,7 +60,7 @@ class EventCard extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: 6.w,
+                height: 6.h,
               ),
               Row(
                 children: [
@@ -81,6 +81,7 @@ class EventCard extends StatelessWidget {
               Row(
                 children: [
                   Icon(Icons.location_on_outlined, size: 16.sp),
+                  SizedBox(width: 3.w,),
                   TextButton(
                     onPressed: () {},
                     style: TextButton.styleFrom(

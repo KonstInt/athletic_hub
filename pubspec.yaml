@@ -27,6 +27,8 @@ dependencies:
   intl: ^0.18.1
   cached_network_image: ^3.3.0
   flutter_dropzone: ^3.0.6
+  lite_rolling_switch: ^1.0.1
+
 
 dev_dependencies:
   flutter_test:

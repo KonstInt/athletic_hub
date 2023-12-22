@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(165, 25, 165, 25),
           width: double.infinity,
           decoration: const BoxDecoration(
-            color: Color(0xffa5fddd),
+            color: Colors.black,
             boxShadow: [
               BoxShadow(
                 color: Color(0x3f000000),
@@ -37,7 +37,7 @@ class HomePage extends StatelessWidget {
                   fontSize: 36,
                   fontWeight: FontWeight.w500,
                   height: 1.2175,
-                  color: const Color(0xff000000),
+                  color:  Colors.white,
                 ),
               ),
               const Spacer(),
@@ -58,7 +58,7 @@ class HomePage extends StatelessWidget {
                               fontSize: 20,
                               fontWeight: FontWeight.w500,
                               height: 1.2175,
-                              color: const Color(0xff1f2029),
+                              color: Colors.white,
                             ),
                           ),
                         ),
@@ -75,7 +75,7 @@ class HomePage extends StatelessWidget {
                               fontSize: 20,
                               fontWeight: FontWeight.w500,
                               height: 1.2175,
-                              color: const Color(0xff1f2029),
+                              color: Colors.white,
                             ),
                           ),
                         ),
@@ -92,7 +92,7 @@ class HomePage extends StatelessWidget {
                               fontSize: 20,
                               fontWeight: FontWeight.w500,
                               height: 1.2175,
-                              color: const Color(0xff1f2029),
+                              color: Colors.white,
                             ),
                           ),
                         ),
@@ -106,7 +106,7 @@ class HomePage extends StatelessWidget {
                               fontSize: 20,
                               fontWeight: FontWeight.w500,
                               height: 1.2175,
-                              color: const Color(0xff1f2029),
+                              color: Colors.white,
                             ),
                           ),
                         ),
@@ -123,7 +123,7 @@ class HomePage extends StatelessWidget {
                               fontSize: 20,
                               fontWeight: FontWeight.w500,
                               height: 1.2175,
-                              color: const Color(0xff1f2029),
+                              color: Colors.white,
                             ),
                           ),
                         ),
@@ -135,7 +135,11 @@ class HomePage extends StatelessWidget {
             ),
           ),
         ),
-        body: const Center(child: EventList()));
+        body: Container(
+          color: Color(0xffcccccc),
+          child: const Center(
+              child: EventList()),
+        ));
   }
 
   void _showPopupMenu(BuildContext context) async {

@@ -38,7 +38,7 @@ class _JoinTeamListState extends State<JoinTeamList> {
                 return Container(
                   width: 330,
                   decoration: BoxDecoration(
-                    color: const Color(0xFFD9D9D9),
+                    color: const Color(0xffd9d9d9),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   padding:
@@ -73,7 +73,7 @@ class _JoinTeamListState extends State<JoinTeamList> {
                             teamList[index].name,
                             style: GoogleFonts.montserrat(
                               fontSize: 20.0,
-                              color: const Color(0xFF367EEA),
+                              color:  Colors.black,
                             ),
                           ),
                         ),
@@ -113,9 +113,9 @@ class _JoinTeamListState extends State<JoinTeamList> {
           height: 45.65,
           decoration: BoxDecoration(
             color: const Color(0xFFA5FDDD),
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(10),
           ),
-          child: TextButton(
+          child: ElevatedButton(
             onPressed: () {
               if (selectedTeamIndex != null) {
                 if (teamList[selectedTeamIndex!].members.length <
@@ -125,9 +125,10 @@ class _JoinTeamListState extends State<JoinTeamList> {
                 }
               } else {}
             },
-            style: TextButton.styleFrom(
-              foregroundColor: Colors.black,
-            ),
+
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Color(0xff0bffa6),
+          ),
             child: Text(
               'участвую',
               style: GoogleFonts.montserrat(
