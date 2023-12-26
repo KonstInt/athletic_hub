@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:athletic_hub/app/feature/event_create/presentation/photo_bloc/photobloc.dart';
@@ -14,6 +15,7 @@ class PhotoDropBox extends StatefulWidget {
 }
 
 class _PhotoDropBoxState extends State<PhotoDropBox> {
+  String photoS = '';
   late DropzoneViewController controller1;
   String message1 = 'Drop something here';
   bool highlighted1 = false;
@@ -23,114 +25,82 @@ class _PhotoDropBoxState extends State<PhotoDropBox> {
     return Center(
       child: BlocBuilder<PhotoBloc, PhotoState>(
         builder: (context, state) {
-          return switch(state){
-            final PhotoInitial _ =>
-            const Center(
-              child: CircularProgressIndicator(),
-            ),
-            final PhotoRead _ =>
-                Container(
-                  decoration: BoxDecoration(
-                    color: const Color(0xfff5f5f5),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  width: 244,
-                  height: 272,
-                  child: Stack(
-                    children: [
-                      buildZone1(context),
-                      const Center(child: Icon(Icons.image_outlined)),
-                    ],
-                  ),
+          return switch (state) {
+            final PhotoInitial _ => const Center(
+                child: CircularProgressIndicator(),
+              ),
+            final PhotoRead _ => Container(
+                decoration: BoxDecoration(
+                  color: const Color(0xfff5f5f5),
+                  borderRadius: BorderRadius.circular(10),
                 ),
-            final PhotoSuccess state =>
-                Container(
-                  decoration: BoxDecoration(
-                    color: const Color(0xfff5f5f5),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  width: 244,
-                  height: 272,
-                  child: Stack(
-                    children: [
-                      buildZone1(context),
-                      Positioned.fill(
+                width: 274,
+                height: 350,
+                child: Stack(
+                  children: [
+                    buildZone1(context),
+                    const Center(child: Icon(Icons.image_outlined)),
+                  ],
+                ),
+              ),
+            final PhotoSuccess state => Container(
+                decoration: BoxDecoration(
+                  color: const Color(0xfff5f5f5),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                width: 274,
+                height: 350,
+                child: Stack(
+                  children: [
+                    buildZone1(context),
+                    Positioned.fill(
                       child: Image.memory(
                         state.photo,
                         fit: BoxFit.cover,
-                      ),)
-                    ],
-                  ),
+                      ),
+                    )
+                  ],
                 ),
+              ),
           };
         },
       ),
-      /*child: BlocProvider(
-        create: (context) => PhotoBloc(),
-        child: Container(
-          decoration: BoxDecoration(
-            color: const Color(0xfff5f5f5),
-            borderRadius: BorderRadius.circular(10),
-          ),
-          width: 244,
-          height: 272,
-          child: BlocBuilder<PhotoBloc, Uint8List?>(
-            builder: (context, photo) {
-              return photo == null
-                  ? Stack(
-                      children: [
-                        buildZone1(context),
-                        const Center(child: Icon(Icons.image_outlined)),
-                      ],
-                    )
-                  : Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        image: DecorationImage(
-                          image: MemoryImage(photo),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    );
-            },
-          ),
-        ),
-      ),*/
     );
   }
 
-  Widget buildZone1(BuildContext context) =>
-      Builder(
-        builder: (context) =>
-            DropzoneView(
-              operation: DragOperation.copy,
-              cursor: CursorType.grab,
-              onCreated: (ctrl) => controller1 = ctrl,
-              onLoaded: () => print('Zone 1 loaded'),
-              onError: (ev) => print('Zone 1 error: $ev'),
-              onHover: () {
-                setState(() => highlighted1 = true);
-                print('Zone 1 hovered');
-              },
-              onLeave: () {
-                setState(() => highlighted1 = false);
-                print('Zone 1 left');
-              },
-              onDrop: (ev) async {
-                print('Zone 1 drop: ${ev.name}');
-                final bytes = await controller1.getFileData(ev);
-                context
-                    .read<PhotoBloc>()
-                    .add(SetPhoto(bytes));
-              },
-              onDropInvalid: (ev) => print('Zone 1 invalid MIME: $ev'),
-              onDropMultiple: (ev) async {
-                print('Zone 1 drop multiple: $ev');
-                final bytes = await controller1.getFileData(ev);
+  String uint8ListToString(Uint8List data) {
+    return base64Encode(data);
+  }
 
-                final photoBloc = BlocProvider.of<PhotoBloc>(context);
-                photoBloc.add(SetPhoto(bytes));
-              },
-            ),
+  Widget buildZone1(BuildContext context) => Builder(
+        builder: (context) => DropzoneView(
+          operation: DragOperation.copy,
+          cursor: CursorType.grab,
+          onCreated: (ctrl) => controller1 = ctrl,
+          onLoaded: () => print('Zone 1 loaded'),
+          onError: (ev) => print('Zone 1 error: $ev'),
+          onHover: () {
+            setState(() => highlighted1 = true);
+            print('Zone 1 hovered');
+          },
+          onLeave: () {
+            setState(() => highlighted1 = false);
+            print('Zone 1 left');
+          },
+          onDrop: (ev) async {
+            print('Zone 1 drop: ${ev.name}');
+            final bytes = await controller1.getFileData(ev);
+            photoS = uint8ListToString(bytes);
+            context.read<PhotoBloc>().add(SetPhoto(bytes));
+          },
+          onDropInvalid: (ev) => print('Zone 1 invalid MIME: $ev'),
+          onDropMultiple: (ev) async {
+            print('Zone 1 drop multiple: $ev');
+            final bytes = await controller1.getFileData(ev);
+
+            final photoBloc = BlocProvider.of<PhotoBloc>(context);
+            photoBloc.add(SetPhoto(bytes));
+          },
+        ),
       );
 }

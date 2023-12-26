@@ -143,9 +143,6 @@ class EventCreatPage extends StatelessWidget {
         ),
       )
 
-
-
-
     );
   }
 

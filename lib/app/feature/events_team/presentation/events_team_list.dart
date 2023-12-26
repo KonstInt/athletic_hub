@@ -112,8 +112,8 @@ class _JoinTeamListState extends State<JoinTeamList> {
           width: 160,
           height: 45.65,
           decoration: BoxDecoration(
-            color: const Color(0xFFA5FDDD),
-            borderRadius: BorderRadius.circular(10),
+            color: const Color(0xff0bffa6),
+            borderRadius: BorderRadius.circular(20),
           ),
           child: ElevatedButton(
             onPressed: () {
