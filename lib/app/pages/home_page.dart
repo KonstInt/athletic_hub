@@ -5,6 +5,7 @@ import 'package:athletic_hub/app/pages/event_creat_page.dart';
 import 'package:athletic_hub/app/pages/registration_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import '../feature/events/presentation/event_list.dart';
@@ -40,105 +41,96 @@ class HomePage extends StatelessWidget {
                   fontSize: 36,
                   fontWeight: FontWeight.w500,
                   height: 1.2175,
-                  color:  Colors.white,
+                  color: Colors.white,
                 ),
               ),
               const Spacer(),
-              
-                BlocBuilder<AuthorizationBloc, AuthorizationState>(
-                  builder: (context, state) {
-                    return switch (state) {
-                      final AuthorizationInitial _ => TextButton(
-                          onPressed: () {
-                            Navigator.of(context)
-                                .push(MaterialPageRoute(builder: (context) {
-                              return RegistrationPage();
-                            }));
-                          },
-                          child: Text(
-                            'войти',
-                            style: GoogleFonts.montserrat(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500,
-                              height: 1.2175,
-                              color: Colors.white,
-                            ),
+              BlocBuilder<AuthorizationBloc, AuthorizationState>(
+                builder: (context, state) {
+                  return switch (state) {
+                    final AuthorizationInitial _ => TextButton(
+                        onPressed: () {
+                          context.go('/registration');
+                        },
+                        child: Text(
+                          'войти',
+                          style: GoogleFonts.montserrat(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                            height: 1.2175,
+                            color: Colors.white,
                           ),
                         ),
-                      final AuthorizationEnter _ => TextButton(
-                          onPressed: () {
-                            Navigator.of(context)
-                                .push(MaterialPageRoute(builder: (context) {
-                              return RegistrationPage();
-                            }));
-                          },
-                          child: Text(
-                            'войти',
-                            style: GoogleFonts.montserrat(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500,
-                              height: 1.2175,
-                              color: Colors.white,
-                            ),
+                      ),
+                    final AuthorizationEnter _ => TextButton(
+                        onPressed: () {
+                          context.go('/registration');
+                        },
+                        child: Text(
+                          'войти',
+                          style: GoogleFonts.montserrat(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                            height: 1.2175,
+                            color: Colors.white,
                           ),
                         ),
-                      final AuthorizationReg _ => TextButton(
-                          onPressed: () {
-                            Navigator.of(context)
-                                .push(MaterialPageRoute(builder: (context) {
-                              return RegistrationPage();
-                            }));
-                          },
-                          child: Text(
-                            'войти',
-                            style: GoogleFonts.montserrat(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500,
-                              height: 1.2175,
-                              color: Colors.white,
-                            ),
+                      ),
+                    final AuthorizationReg _ => TextButton(
+                        onPressed: () {
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (context) {
+                            return const RegistrationPage();
+                          }));
+                        },
+                        child: Text(
+                          'войти',
+                          style: GoogleFonts.montserrat(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                            height: 1.2175,
+                            color: Colors.white,
                           ),
                         ),
-                      final AuthorizationSuccess state => TextButton(
-                          onPressed: () {
-                            _showPopupMenu(context);
-                          },
-                          child: Text(
-                            state.auth.login,
-                            style: GoogleFonts.montserrat(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500,
-                              height: 1.2175,
-                              color: Colors.white,
-                            ),
+                      ),
+                    final AuthorizationSuccess state => TextButton(
+                        onPressed: () {
+                          _showPopupMenu(context);
+                        },
+                        child: Text(
+                          state.auth.login,
+                          style: GoogleFonts.montserrat(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                            height: 1.2175,
+                            color: Colors.white,
                           ),
                         ),
-                      final AuthorizationFailure _ => TextButton(
-                          onPressed: () {
-                            Navigator.of(context)
-                                .push(MaterialPageRoute(builder: (context) {
-                              return RegistrationPage();
-                            }));
-                          },
-                          child: Text(
-                            'не удалось войти',
-                            style: GoogleFonts.montserrat(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500,
-                              height: 1.2175,
-                              color: Colors.white,
-                            ),
+                      ),
+                    final AuthorizationFailure _ => TextButton(
+                        onPressed: () {
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (context) {
+                            return const RegistrationPage();
+                          }));
+                        },
+                        child: Text(
+                          'не удалось войти',
+                          style: GoogleFonts.montserrat(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                            height: 1.2175,
+                            color: Colors.white,
                           ),
                         ),
-                    };
-                  },
-                ),
-
-              ],
-            ),
+                      ),
+                  };
+                },
+              ),
+            ],
           ),
         ),
-      
+      ),
       body: Center(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 80.w),
@@ -162,7 +154,7 @@ class HomePage extends StatelessWidget {
                       FilterModel(filterId: "4", filter: "Водное поло"),
                     ],
                   ),
-                   FilterBlocModel(
+                  FilterBlocModel(
                     id: "123e",
                     title: "Время года",
                     filters: [
@@ -185,12 +177,12 @@ class HomePage extends StatelessWidget {
     await showMenu(
       context: context,
       color: Colors.green[49],
-      position: RelativeRect.fromLTRB(550, 100, 100, 0),
+      position: const RelativeRect.fromLTRB(550, 100, 100, 0),
       items: [
         PopupMenuItem(
           onTap: () {
             Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-              return EventCreatPage();
+              return const EventCreatPage();
             }));
           },
           value: 1,
@@ -215,5 +207,4 @@ class HomePage extends StatelessWidget {
       elevation: 8.0,
     ).then((value) {});
   }
-
 }

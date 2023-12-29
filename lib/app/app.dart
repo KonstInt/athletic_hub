@@ -44,12 +44,12 @@ class App extends StatelessWidget {
                     debugShowCheckedModeBanner: false,
                     theme: AppTheme.lightTheme,
                     routerConfig: routerSettings,
-                    localizationsDelegates: [
+                    localizationsDelegates: const [
                       GlobalMaterialLocalizations.delegate,
                       GlobalWidgetsLocalizations.delegate,
                     ],
-                    supportedLocales: [
-                      const Locale('ru', 'RU'),
+                    supportedLocales: const [
+                      Locale('ru', 'RU'),
                     ],
                   ),
                 );

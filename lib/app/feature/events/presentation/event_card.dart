@@ -15,7 +15,7 @@ class EventCard extends StatelessWidget {
   final EventModel eventModel;
   const EventCard({super.key, required this.eventModel});
 
-  @override 
+  @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
@@ -81,7 +81,9 @@ class EventCard extends StatelessWidget {
               Row(
                 children: [
                   Icon(Icons.location_on_outlined, size: 16.sp),
-                  SizedBox(width: 3.w,),
+                  SizedBox(
+                    width: 3.w,
+                  ),
                   TextButton(
                     onPressed: () {},
                     style: TextButton.styleFrom(

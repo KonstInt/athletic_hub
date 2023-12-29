@@ -32,8 +32,8 @@ class InfoButton extends StatelessWidget {
           overlayEntry.remove();
         });
       },
-      child:  Padding(
-        padding: EdgeInsets.all(8.0),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
         child: Icon(
           Icons.info_outline_rounded,
           size: 18.sp,

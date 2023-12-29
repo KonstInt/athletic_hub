@@ -16,12 +16,16 @@ class EventList extends StatelessWidget {
           GetIt.I<EventListBloc>()..add(const EventListEvent.loadEvents()),
       child: BlocBuilder<EventListBloc, EventListState>(
           builder: (context, state) => state.map(initial: (value) {
-                return CircularProgressIndicator(
-                  color: context.colors.green,
+                return Center(
+                  child: CircularProgressIndicator(
+                    color: context.colors.green,
+                  ),
                 );
               }, loading: (value) {
-                return CircularProgressIndicator(
-                  color: context.colors.green,
+                return Center(
+                  child: CircularProgressIndicator(
+                    color: context.colors.green,
+                  ),
                 );
               }, loaded: (value) {
                 return ListView.separated(

@@ -14,10 +14,6 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ApiEventModel _$ApiEventModelFromJson(Map<String, dynamic> json) {
-  return _ApiEventModel.fromJson(json);
-}
-
 /// @nodoc
 mixin _$ApiEventModel {
   String get id => throw _privateConstructorUsedError;
@@ -29,7 +25,6 @@ mixin _$ApiEventModel {
   String get time => throw _privateConstructorUsedError;
   List<String> get tags => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ApiEventModelCopyWith<ApiEventModel> get copyWith =>
       throw _privateConstructorUsedError;
@@ -188,7 +183,7 @@ class __$$ApiEventModelImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$ApiEventModelImpl implements _ApiEventModel {
   const _$ApiEventModelImpl(
       {required this.id,
@@ -200,9 +195,6 @@ class _$ApiEventModelImpl implements _ApiEventModel {
       required this.time,
       required final List<String> tags})
       : _tags = tags;
-
-  factory _$ApiEventModelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ApiEventModelImplFromJson(json);
 
   @override
   final String id;
@@ -249,7 +241,6 @@ class _$ApiEventModelImpl implements _ApiEventModel {
             const DeepCollectionEquality().equals(other._tags, _tags));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, idCreator, title, imagePath,
       text, placeUrl, time, const DeepCollectionEquality().hash(_tags));
@@ -259,13 +250,6 @@ class _$ApiEventModelImpl implements _ApiEventModel {
   @pragma('vm:prefer-inline')
   _$$ApiEventModelImplCopyWith<_$ApiEventModelImpl> get copyWith =>
       __$$ApiEventModelImplCopyWithImpl<_$ApiEventModelImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ApiEventModelImplToJson(
-      this,
-    );
-  }
 }
 
 abstract class _ApiEventModel implements ApiEventModel {
@@ -278,9 +262,6 @@ abstract class _ApiEventModel implements ApiEventModel {
       required final String placeUrl,
       required final String time,
       required final List<String> tags}) = _$ApiEventModelImpl;
-
-  factory _ApiEventModel.fromJson(Map<String, dynamic> json) =
-      _$ApiEventModelImpl.fromJson;
 
   @override
   String get id;

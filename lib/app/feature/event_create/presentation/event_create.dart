@@ -39,7 +39,7 @@ class _EventCreateState extends State<EventCreate> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(child: PhotoDropBox()),
+              const SizedBox(child: PhotoDropBox()),
               SizedBox(
                 width: 70.w,
               ),
@@ -50,7 +50,7 @@ class _EventCreateState extends State<EventCreate> {
                     width: 555,
                     child: titleCreate(context),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
                   Padding(
@@ -61,7 +61,7 @@ class _EventCreateState extends State<EventCreate> {
                       child: discriptionCreate(context),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 24,
                   ),
                   SizedBox(
@@ -108,14 +108,14 @@ class _EventCreateState extends State<EventCreate> {
   }
 
   Widget titleCreate(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 69,
       child: TextField(
         style: GoogleFonts.montserrat(
           fontSize: 26,
           fontWeight: FontWeight.w300,
         ),
-        onChanged: (value) => setState(() => this.title = value),
+        onChanged: (value) => setState(() => title = value),
         decoration: InputDecoration(
             filled: true,
             fillColor: const Color(0xe5ffffff),
@@ -140,26 +140,26 @@ class _EventCreateState extends State<EventCreate> {
   }
 
   bool CanParse(String str) {
-    if(str.isEmpty)
-      return true;
+    if (str.isEmpty) return true;
     var value = int.tryParse(str);
-    if (value != null)
+    if (value != null) {
       return true;
-    else
+    } else {
       return false;
+    }
   }
 
   Widget teamsCountCreate(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 69,
       child: TextField(
         style: GoogleFonts.montserrat(
           fontSize: 26,
           fontWeight: FontWeight.w300,
         ),
-        onChanged: (value) => setState(() => this.countTeamsStr = value),
+        onChanged: (value) => setState(() => countTeamsStr = value),
         decoration: InputDecoration(
-            errorText: CanParse(this.countTeamsStr) ? null : 'Введите число',
+            errorText: CanParse(countTeamsStr) ? null : 'Введите число',
             filled: true,
             fillColor: const Color(0xe5ffffff),
             hintText: 'Команд',
@@ -174,16 +174,16 @@ class _EventCreateState extends State<EventCreate> {
   }
 
   Widget membersCountCreate(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 69,
       child: TextField(
         style: GoogleFonts.montserrat(
           fontSize: 26,
           fontWeight: FontWeight.w300,
         ),
-        onChanged: (value) => setState(() => this.counMembersStr = value),
+        onChanged: (value) => setState(() => counMembersStr = value),
         decoration: InputDecoration(
-            errorText: CanParse(this.counMembersStr) ? null : 'Введите число',
+            errorText: CanParse(counMembersStr) ? null : 'Введите число',
             filled: true,
             fillColor: const Color(0xe5ffffff),
             hintText: 'Участников',
@@ -215,10 +215,10 @@ class _EventCreateState extends State<EventCreate> {
               return Theme(
                 data: ThemeData.light().copyWith(
                   primaryColor: Colors.white70,
-                  colorScheme: ColorScheme.light(
+                  colorScheme: const ColorScheme.light(
                     primary: Colors.black45,
                   ),
-                  buttonTheme: ButtonThemeData(
+                  buttonTheme: const ButtonThemeData(
                     textTheme: ButtonTextTheme.primary,
                   ),
                 ),
@@ -248,10 +248,10 @@ class _EventCreateState extends State<EventCreate> {
         return Theme(
           data: ThemeData.light().copyWith(
             primaryColor: Colors.white70,
-            colorScheme: ColorScheme.light(
+            colorScheme: const ColorScheme.light(
               primary: Colors.black45,
             ),
-            buttonTheme: ButtonThemeData(
+            buttonTheme: const ButtonThemeData(
               textTheme: ButtonTextTheme.primary,
             ),
           ),
@@ -274,7 +274,7 @@ class _EventCreateState extends State<EventCreate> {
       onPressed: () => _selectDate(context),
       child: Text(
         DateFormat('dd-MM-yyyy').format(date),
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 26,
           fontWeight: FontWeight.w300,
         ),
@@ -283,7 +283,7 @@ class _EventCreateState extends State<EventCreate> {
   }
 
   Widget discriptionCreate(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 170,
       child: TextField(
         maxLines: 4,
@@ -291,7 +291,7 @@ class _EventCreateState extends State<EventCreate> {
           fontSize: 26,
           fontWeight: FontWeight.w300,
         ),
-        onChanged: (value) => setState(() => this.discription = value),
+        onChanged: (value) => setState(() => discription = value),
         decoration: InputDecoration(
             filled: true,
             fillColor: const Color(0xe5ffffff),
@@ -316,14 +316,14 @@ class _EventCreateState extends State<EventCreate> {
   }
 
   Widget locationCreate(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 69,
       child: TextField(
         style: GoogleFonts.montserrat(
           fontSize: 26,
           fontWeight: FontWeight.w300,
         ),
-        onChanged: (value) => setState(() => this.lacationUrl = value),
+        onChanged: (value) => setState(() => lacationUrl = value),
         decoration: InputDecoration(
             filled: true,
             fillColor: const Color(0xe5ffffff),
@@ -352,14 +352,14 @@ class _EventCreateState extends State<EventCreate> {
   }
 
   Widget tagsCreate(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 69,
       child: TextField(
         style: GoogleFonts.montserrat(
           fontSize: 26,
           fontWeight: FontWeight.w300,
         ),
-        onChanged: (value) => setState(() => this.tags = value.split(' ')),
+        onChanged: (value) => setState(() => tags = value.split(' ')),
         decoration: InputDecoration(
             filled: true,
             fillColor: const Color(0xe5ffffff),
@@ -388,10 +388,10 @@ class _EventCreateState extends State<EventCreate> {
 
   bool isUnlockButton() {
     return title.isNotEmpty &&
-            discription.isNotEmpty &&
-        (isYandexMapsUrl(lacationUrl) ||
-        isGoogleMapsUrl(lacationUrl) )&&
-    CanParse(countTeamsStr) && CanParse(counMembersStr);
+        discription.isNotEmpty &&
+        (isYandexMapsUrl(lacationUrl) || isGoogleMapsUrl(lacationUrl)) &&
+        CanParse(countTeamsStr) &&
+        CanParse(counMembersStr);
   }
 
   DateTime mergeDateTimeAndTimeOfDay(DateTime date, TimeOfDay time) {
@@ -413,11 +413,11 @@ class _EventCreateState extends State<EventCreate> {
         final PhotoRead _ => ElevatedButton(
             onPressed: null,
             style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xffededed),
+                backgroundColor: const Color(0xffededed),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
-                fixedSize: Size(220, 60)),
+                fixedSize: const Size(220, 60)),
             child: Text(
               'СОЗДАТЬ',
               style: GoogleFonts.montserrat(
@@ -444,11 +444,11 @@ class _EventCreateState extends State<EventCreate> {
                   }
                 : null,
             style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xffededed),
+                backgroundColor: const Color(0xffededed),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
-                fixedSize: Size(220, 60)),
+                fixedSize: const Size(220, 60)),
             child: Text(
               'СОЗДАТЬ',
               style: GoogleFonts.montserrat(

@@ -5,11 +5,10 @@ import 'package:athletic_hub/app/feature/event_create/presentation/photo_bloc/ph
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dropzone/flutter_dropzone.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_dropzone/flutter_dropzone.dart';
 
 class PhotoDropBox extends StatefulWidget {
+  const PhotoDropBox({super.key});
+
   @override
   _PhotoDropBoxState createState() => _PhotoDropBoxState();
 }

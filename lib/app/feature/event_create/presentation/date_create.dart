@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
 class DateCreateWidget extends StatefulWidget {
   final void Function(DateTime) onDateSelected;
 
-  DateCreateWidget({required this.onDateSelected});
+  const DateCreateWidget({super.key, required this.onDateSelected});
 
   @override
   _DateCreateWidgetState createState() => _DateCreateWidgetState();
@@ -25,14 +26,14 @@ class _DateCreateWidgetState extends State<DateCreateWidget> {
       firstDate: selectedDate,
       lastDate: DateTime(2025),
       builder: (context, childWidget) {
-        Locale locale = Localizations.localeOf(context);
+      //  Locale locale = Localizations.localeOf(context);
         return Theme(
           data: ThemeData.light().copyWith(
             primaryColor: Colors.white70,
-            colorScheme: ColorScheme.light(
+            colorScheme: const ColorScheme.light(
               primary: Colors.black45,
             ),
-            buttonTheme: ButtonThemeData(
+            buttonTheme: const ButtonThemeData(
               textTheme: ButtonTextTheme.primary,
             ),
           ),
@@ -61,7 +62,7 @@ class _DateCreateWidgetState extends State<DateCreateWidget> {
       onPressed: () => _selectDate(context),
       child: Text(
         DateFormat('dd-MM-yyyy').format(selectedDate),
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 26,
           fontWeight: FontWeight.w300,
         ),

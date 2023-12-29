@@ -30,8 +30,13 @@ class _JoinTeamListState extends State<JoinTeamList> {
                 );
               },
               loading: (value) {
-                return CircularProgressIndicator(
-                  color: context.colors.green,
+                return SizedBox(
+                  width: 240,
+                  child: Center(
+                    child: CircularProgressIndicator(
+                      color: context.colors.green,
+                    ),
+                  ),
                 );
               },
               loaded: (value) {
@@ -80,7 +85,6 @@ class _JoinTeamListState extends State<JoinTeamList> {
                         InfoButton(
                           members: teamList[index].members,
                         ),
-                        
                         Expanded(
                           child: Text(
                             '${teamList[index].members.length}/${teamList[index].capacity}',
@@ -91,7 +95,6 @@ class _JoinTeamListState extends State<JoinTeamList> {
                             ),
                           ),
                         ),
-                      
                         CustomRadio(
                           value: index,
                           groupValue: selectedTeamIndex,

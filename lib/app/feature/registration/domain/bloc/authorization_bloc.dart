@@ -7,15 +7,15 @@ part 'authorization_state.dart';
 
 class AuthorizationBloc extends Bloc<AuthorizationEvent, AuthorizationState> {
   AuthorizationBloc() : super(AuthorizationInitial()) {
-    on<RegEvent>((event,emit){
+    on<RegEvent>((event, emit) {
       emit(AuthorizationReg());
     });
 
-    on<EnterEvent>((event,emit){
+    on<EnterEvent>((event, emit) {
       emit(AuthorizationEnter());
     });
 
-    on<AuthEvent>((event,emit){
+    on<AuthEvent>((event, emit) {
       emit(AuthorizationSuccess(auth: event.auth));
     });
   }

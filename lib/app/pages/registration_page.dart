@@ -1,9 +1,7 @@
 import 'package:athletic_hub/app/feature/registration/domain/bloc/authorization_bloc.dart';
-import 'package:athletic_hub/app/feature/registration/domain/bloc/authorization_bloc.dart';
 import 'package:athletic_hub/app/feature/registration/presentation/entering.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../feature/registration/presentation/registration.dart';
 
@@ -51,7 +49,7 @@ class RegistrationPage extends StatelessWidget {
         ),
       ),
       body: Container(
-        color: Color(0xffcccccc),
+        color: const Color(0xffcccccc),
         child: BlocBuilder<AuthorizationBloc, AuthorizationState>(
           builder: (context, state) {
             return switch (state) {
@@ -89,20 +87,20 @@ class RegistrationPage extends StatelessWidget {
                                   style: GoogleFonts.montserrat(
                                     fontSize: 55,
                                     fontWeight: FontWeight.w400,
-                                    color: Color(0xFFFFFFFF),
+                                    color: const Color(0xFFFFFFFF),
                                   ),
                                 ))
                           ],
                         ),
                       ),
-                      SizedBox(width: 610, child: Entering()),
+                      const SizedBox(width: 610, child: Entering()),
                     ],
                   ),
                 ),
               final AuthorizationSuccess _ => const Center(
                   child: CircularProgressIndicator(),
                 ),
-              final AuthorizationFailure state => Center(
+              final AuthorizationFailure state => const Center(
                   child: Text('Error'),
                 ),
               final AuthorizationReg state => Center(
@@ -127,7 +125,7 @@ class RegistrationPage extends StatelessWidget {
                                     style: GoogleFonts.montserrat(
                                       fontSize: 55,
                                       fontWeight: FontWeight.w400,
-                                      color: Color(0xFFFFFFFF),
+                                      color: const Color(0xFFFFFFFF),
                                     ),
                                   ),
                                 )),
@@ -142,7 +140,7 @@ class RegistrationPage extends StatelessWidget {
                           ],
                         ),
                       ),
-                      SizedBox(width: 610, child: Registration()),
+                      const SizedBox(width: 610, child: Registration()),
                     ],
                   ),
                 ),

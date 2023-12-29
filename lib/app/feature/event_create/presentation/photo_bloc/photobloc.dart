@@ -8,14 +8,12 @@ part 'state.dart';
 
 class PhotoBloc extends Bloc<PhotoEvent, PhotoState> {
   PhotoBloc() : super(PhotoInitial()) {
-
-    on<SetPhoto>((event,emit){
+    on<SetPhoto>((event, emit) {
       emit(PhotoSuccess(photo: event.photo));
     });
 
-    on<NoSetPhoto>((event,emit){
+    on<NoSetPhoto>((event, emit) {
       emit(PhotoRead());
     });
   }
 }
-

@@ -32,14 +32,13 @@ class _EnteringState extends State<Entering> {
     );
   }
 
-
-  Widget loginEnter(BuildContext context){
+  Widget loginEnter(BuildContext context) {
     return TextField(
       style: GoogleFonts.montserrat(
         fontSize: 26,
         fontWeight: FontWeight.w300,
       ),
-      onChanged: (value)=> setState(()=> this.login = value ),
+      onChanged: (value) => setState(() => login = value),
       decoration: InputDecoration(
           filled: true,
           fillColor: const Color(0xe5ffffff),
@@ -51,29 +50,24 @@ class _EnteringState extends State<Entering> {
           hoverColor: Colors.transparent,
           prefixIcon: const Padding(
             padding: EdgeInsets.fromLTRB(57, 19, 10, 19),
-            child: Icon(Icons.alternate_email,
+            child: Icon(
+              Icons.alternate_email,
               color: Colors.black,
             ),
           ),
           border: const OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(10)),
-              borderSide: BorderSide(
-                  width: 1,
-                  color: Colors.black
-              )
-          )
-      ),
+              borderSide: BorderSide(width: 1, color: Colors.black))),
     );
   }
 
-
-  Widget passwordEnter(BuildContext context){
+  Widget passwordEnter(BuildContext context) {
     return TextField(
       style: GoogleFonts.montserrat(
         fontSize: 26,
         fontWeight: FontWeight.w300,
       ),
-      onChanged: (value)=> setState(()=> this.password = value ),
+      onChanged: (value) => setState(() => password = value),
       decoration: InputDecoration(
           filled: true,
           fillColor: const Color(0xe5ffffff),
@@ -87,51 +81,47 @@ class _EnteringState extends State<Entering> {
             padding: const EdgeInsets.only(right: 30),
             child: IconButton(
               color: Colors.black,
-              onPressed: ()=> setState(() => isPasswordVisible = !isPasswordVisible),
-              icon: isPasswordVisible ?
-              const Icon(Icons.visibility_off_outlined):
-              const Icon(Icons.visibility_outlined),
+              onPressed: () =>
+                  setState(() => isPasswordVisible = !isPasswordVisible),
+              icon: isPasswordVisible
+                  ? const Icon(Icons.visibility_off_outlined)
+                  : const Icon(Icons.visibility_outlined),
             ),
           ),
-          prefixIcon:
-          const Padding(
+          prefixIcon: const Padding(
             padding: EdgeInsets.fromLTRB(57, 19, 10, 19),
-            child: Icon(Icons.lock_outline,
+            child: Icon(
+              Icons.lock_outline,
               color: Colors.black,
             ),
           ),
           border: const OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(10)),
-              borderSide: BorderSide(
-                  width: 1,
-                  color: Colors.black
-              )
-          )
-      ),
+              borderSide: BorderSide(width: 1, color: Colors.black))),
       obscureText: isPasswordVisible,
     );
   }
 
-  bool isUnlockButton(){
+  bool isUnlockButton() {
     return password.isNotEmpty && login.isNotEmpty;
   }
 
-  Widget EnterBotton(BuildContext){
+  Widget EnterBotton(BuildContext) {
     return ElevatedButton(
-      onPressed: isUnlockButton() ?
-          (){
-            Navigator.of(context).pop();
-            AuthorizationModel auth = AuthorizationModel(login: login, password: password);
-            context.read<AuthorizationBloc>().add(AuthEvent(auth));
-          }:
-      null,
+      onPressed: isUnlockButton()
+          ? () {
+              Navigator.of(context).pop();
+              AuthorizationModel auth =
+                  AuthorizationModel(login: login, password: password);
+              context.read<AuthorizationBloc>().add(AuthEvent(auth));
+            }
+          : null,
       style: ElevatedButton.styleFrom(
-          backgroundColor: Color(0xff0bffa6),
+          backgroundColor: const Color(0xff0bffa6),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
-          fixedSize: const Size(220, 60)
-      ),
+          fixedSize: const Size(220, 60)),
       child: Text(
         'ВОЙТИ',
         style: GoogleFonts.montserrat(

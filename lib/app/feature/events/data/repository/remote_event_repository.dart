@@ -9,7 +9,7 @@ class RemoteEventRepository extends EventRepository {
   RemoteEventRepository(this.util);
 
   @override
-  Future<List<EventModel>> getEvents() {
-    return util.getEvents();
+  Future<List<EventModel>> getEvents() async{
+    return await util.getEvents();
   }
 }

@@ -1,4 +1,5 @@
 import 'package:athletic_hub/app/pages/home_page.dart';
+import 'package:athletic_hub/app/pages/registration_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -11,6 +12,13 @@ final GoRouter routerSettings = GoRouter(
       path: '/main',
       builder: (BuildContext context, GoRouterState state) {
         return const HomePage();
+      },
+    ),
+     GoRoute(
+      name: '/registration',
+      path: '/registration',
+      builder: (BuildContext context, GoRouterState state) {
+        return const RegistrationPage();
       },
     ),
   ],

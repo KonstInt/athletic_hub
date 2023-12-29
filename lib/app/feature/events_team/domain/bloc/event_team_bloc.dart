@@ -12,10 +12,10 @@ part 'event_team_bloc.freezed.dart';
 class EventTeamBloc extends Bloc<EventTeamEvent, EventTeamState> {
   EventTeamRepository repository;
   EventTeamBloc(this.repository) : super(const _Initial()) {
-    on<EventTeamEvent>((event, emit) {
-      event.map(
-          started: (event) => start(event, emit),
-          loadTeams: (event) => load(event, emit));
+    on<EventTeamEvent>((event, emit) async {
+      await event.map(
+          started: (event) async => await start(event, emit),
+          loadTeams: (event) async => await load(event, emit));
     });
   }
 

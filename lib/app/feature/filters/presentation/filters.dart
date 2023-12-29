@@ -47,7 +47,9 @@ class FilterWidget extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Title(title: filters[index].title),
-                              SizedBox(height: 10.h,),
+                              SizedBox(
+                                height: 10.h,
+                              ),
                               SizedBox(
                                   height: 100.h,
                                   child: DropDownField(
@@ -86,11 +88,11 @@ class Title extends StatelessWidget {
   final String title;
   @override
   Widget build(BuildContext context) {
-    return  Align(
+    return Align(
       alignment: Alignment.centerLeft,
       child: Text(
         title,
-        style: TextStyle(color: Colors.black, fontSize: 10),
+        style: const TextStyle(color: Colors.black, fontSize: 10),
       ),
     );
   }
