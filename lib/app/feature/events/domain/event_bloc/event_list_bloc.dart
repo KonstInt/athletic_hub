@@ -14,10 +14,10 @@ part 'event_list_bloc.freezed.dart';
 class EventListBloc extends Bloc<EventListEvent, EventListState> {
   EventRepository repository;
   EventListBloc(this.repository) : super(const _Initial()) {
-    on<EventListEvent>((event, emit) {
-      event.map(
-          started: (event) => start(event, emit),
-          loadEvents: (event) => load(event, emit));
+    on<EventListEvent>((event, emit) async {
+     await event.map(
+          started: (event) async => await (event, emit),
+          loadEvents: (event) async => await load(event, emit));
     });
   }
 
@@ -28,6 +28,7 @@ class EventListBloc extends Bloc<EventListEvent, EventListState> {
     try {
       final result = await repository.getEvents();
       emit(EventListState.loaded(modelList: result));
+      emit.isDone;
     } catch (e) {
       emit(EventListState.error(e.toString()));
     }

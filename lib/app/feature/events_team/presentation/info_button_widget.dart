@@ -18,7 +18,7 @@ class InfoButton extends StatelessWidget {
 
         overlayEntry = OverlayEntry(
           builder: (context) => Positioned(
-            top: offset.dy + 40.0, // 40.0 - отступ от кнопки
+            top: offset.dy + 40.0,
             left: offset.dx,
             child: Material(
               color: Colors.transparent,
@@ -32,8 +32,8 @@ class InfoButton extends StatelessWidget {
           overlayEntry.remove();
         });
       },
-      child:  Padding(
-        padding: EdgeInsets.all(8.0),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
         child: Icon(
           Icons.info_outline_rounded,
           size: 18.sp,

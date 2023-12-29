@@ -30,8 +30,23 @@ class ApiRemoteEventTeamService {
   DioRemoteService dioRemoteService;
   ApiRemoteEventTeamService(this.dioRemoteService);
 
+
   Future<List<ApiEventTeamModel>> getEventTeams(
-      {required String idEvent}) async {
-    return teams;
+      {required String idEvent})  async {
+    try {
+      final List<ApiEventTeamModel> returnValue = [];
+      final result = await dioRemoteService.dio.get('https://athletichub.onrender.com/team/1');
+      if(result.statusCode == 200) {
+      for (var x in result.data) {
+        returnValue.add(ApiEventTeamModel.fromJson(x));
+      }
+      }
+      else{
+        returnValue.addAll(teams);
+      }
+      return returnValue;
+    } catch (e) {
+      rethrow;
+    }
   }
 }

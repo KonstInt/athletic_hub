@@ -7,13 +7,14 @@ import 'package:intl/intl.dart';
 class EventMapper {
   EventModel fromApi(ApiEventModel model) {
     return EventModel(
-        id: model.id,
+        id: model.id.toString(),
         idCreator: model.idCreator,
         title: model.title,
         imagePath: model.imagePath,
         text: model.text,
         placeUrl: model.placeUrl,
-        time: DateFormat("dd-MM-yyyy hh:mm:ss").parse(model.time),
+        time: DateTime.now(),//DateFormat("dd-MM-yyyy").parse(model.time),
         tags: model.tags);
   }
+  
 }
