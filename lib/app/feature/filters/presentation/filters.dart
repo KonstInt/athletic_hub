@@ -1,4 +1,5 @@
-import 'package:athletic_hub/app/feature/filters/presentation/enums.dart';
+import 'package:athletic_hub/app/feature/filters/domain/models/filter_bloc_model.dart';
+import 'package:athletic_hub/app/feature/filters/domain/models/filter_model.dart';
 import 'package:athletic_hub/app/util/themes/extensions/build_context_ext.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
@@ -7,12 +8,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class FilterWidget extends StatelessWidget {
   const FilterWidget({
     super.key,
-    required this.title,
+    required this.filters,
   });
 
-  final String title;
-
-
+  final List<FilterBlocModel> filters;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -30,30 +29,40 @@ class FilterWidget extends StatelessWidget {
                 const Padding(
                     padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
                     child: Text('Фильтр')),
-                ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: 5,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: const Color.fromARGB(197, 196, 208, 208)
-                              .withOpacity(0)),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Title(),
-                          SizedBox(height: 100.h, child: DropDownField()),
-                        ],
-                      ),
-                    );
-                  },
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 18.w),
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: filters.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: EdgeInsets.only(bottom: 15.h),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: const Color.fromARGB(197, 196, 208, 208)
+                                  .withOpacity(0)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Title(title: filters[index].title),
+                              SizedBox(height: 10.h,),
+                              SizedBox(
+                                  height: 100.h,
+                                  child: DropDownField(
+                                    filter: filters[index],
+                                  )),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  ),
                 ),
                 const Spacer(),
                 ElevatedButton(
-                  onPressed: () {
-                  },
+                  onPressed: () {},
                   child: Text(
                     'Применить',
                     style: context.textStyles.bodyM,
@@ -72,14 +81,15 @@ class FilterWidget extends StatelessWidget {
 class Title extends StatelessWidget {
   const Title({
     super.key,
+    required this.title,
   });
-
+  final String title;
   @override
   Widget build(BuildContext context) {
-    return const Align(
+    return  Align(
       alignment: Alignment.centerLeft,
       child: Text(
-        'Вид спорта',
+        title,
         style: TextStyle(color: Colors.black, fontSize: 10),
       ),
     );
@@ -89,25 +99,25 @@ class Title extends StatelessWidget {
 class DropDownField extends StatelessWidget {
   const DropDownField({
     super.key,
-  
+    required this.filter,
   });
+  final FilterBlocModel filter;
 
   @override
   Widget build(BuildContext context) {
-    return DropdownSearch<Enum>(
+    return DropdownSearch<FilterModel>(
       // padding: EdgeInsets.only(bottom: 70, left: 50),
-      dropdownDecoratorProps: DropDownDecoratorProps(
-          baseStyle: context.textStyles.bodyB),
-        dropdownButtonProps: DropdownButtonProps(color: Colors.grey),
-        popupProps: PopupProps.menu(menuProps: MenuProps(backgroundColor: Colors.grey)),
+      dropdownDecoratorProps:
+          DropDownDecoratorProps(baseStyle: context.textStyles.bodyB),
+      dropdownButtonProps: DropdownButtonProps(color: context.colors.white),
+      popupProps: PopupProps.menu(
+          menuProps: MenuProps(backgroundColor: context.colors.white)),
       //textStyle: context.textStyles.bodyM.copyWith(),
-      items: Filters.values.map<Enum>((filter) {
-        return filter;
-      }).toList(),
+      items: filter.filters,
       onChanged: (val) {},
-      
+
       itemAsString: (item) {
-        return item.toString().split('.').last;
+        return item.filter;
       },
     );
   }

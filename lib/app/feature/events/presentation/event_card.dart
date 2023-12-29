@@ -45,9 +45,9 @@ class EventCard extends StatelessWidget {
               ),
               Row(
                 children: [
-                  const Icon(
+                   Icon(
                     Icons.access_time,
-                    size: 16,
+                    size: 36.r,
                   ),
                   SizedBox(
                     width: 12.w,
@@ -66,7 +66,7 @@ class EventCard extends StatelessWidget {
                 children: [
                   Icon(
                     Icons.date_range_sharp,
-                    size: 16.w,
+                    size: 36.r,
                   ),
                   SizedBox(
                     width: 12.h,
@@ -80,7 +80,7 @@ class EventCard extends StatelessWidget {
               ),
               Row(
                 children: [
-                  Icon(Icons.location_on_outlined, size: 16.h),
+                  Icon(Icons.location_on_outlined, size: 36.r),
                   TextButton(
                     onPressed: () {},
                     style: TextButton.styleFrom(
