@@ -18,7 +18,7 @@ class InfoButton extends StatelessWidget {
 
         overlayEntry = OverlayEntry(
           builder: (context) => Positioned(
-            top: offset.dy + 40.0, // 40.0 - отступ от кнопки
+            top: offset.dy + 40.0,
             left: offset.dx,
             child: Material(
               color: Colors.transparent,
