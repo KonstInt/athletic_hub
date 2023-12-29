@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'members_list.dart';
 
 class InfoButton extends StatelessWidget {
@@ -31,11 +32,11 @@ class InfoButton extends StatelessWidget {
           overlayEntry.remove();
         });
       },
-      child: const Padding(
+      child:  Padding(
         padding: EdgeInsets.all(8.0),
         child: Icon(
           Icons.info_outline_rounded,
-          size: 18,
+          size: 18.sp,
           color: Colors.black,
         ),
       ),

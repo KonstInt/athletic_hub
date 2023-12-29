@@ -1,3 +1,6 @@
+import 'package:athletic_hub/app/feature/filters/domain/models/filter_bloc_model.dart';
+import 'package:athletic_hub/app/feature/filters/domain/models/filter_model.dart';
+import 'package:athletic_hub/app/feature/filters/presentation/filters.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
@@ -57,9 +60,38 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 80.w),
-          child: const Row(
+          child: Row(
             children: [
-              Expanded(child: EventList()),
+              const Expanded(
+                child: EventList(),
+              ),
+              SizedBox(
+                width: 100.w,
+              ),
+              const FilterWidget(
+                filters: [
+                  FilterBlocModel(
+                    id: "123e",
+                    title: "Виды спорта",
+                    filters: [
+                      FilterModel(filterId: "1", filter: "Волейбол"),
+                      FilterModel(filterId: "2", filter: "Футбол"),
+                      FilterModel(filterId: "3", filter: "Теннис"),
+                      FilterModel(filterId: "4", filter: "Водное поло"),
+                    ],
+                  ),
+                   FilterBlocModel(
+                    id: "123e",
+                    title: "Время года",
+                    filters: [
+                      FilterModel(filterId: "1", filter: "Зима"),
+                      FilterModel(filterId: "2", filter: "Лето"),
+                      FilterModel(filterId: "3", filter: "Осень"),
+                      FilterModel(filterId: "4", filter: "Весна"),
+                    ],
+                  ),
+                ],
+              ),
             ],
           ),
         ),

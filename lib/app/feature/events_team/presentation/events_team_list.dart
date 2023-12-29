@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:athletic_hub/app/util/themes/extensions/build_context_ext.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +37,7 @@ class _JoinTeamListState extends State<JoinTeamList> {
               loaded: (value) {
                 teamList = value.teamList;
                 return Container(
-                  width: 330,
+                  width: 230.w,
                   decoration: BoxDecoration(
                     color: const Color(0xFFD9D9D9),
                     borderRadius: BorderRadius.circular(10),
@@ -61,49 +62,49 @@ class _JoinTeamListState extends State<JoinTeamList> {
           child: ListView.builder(
             itemCount: teamList.length,
             itemBuilder: (context, index) {
-              return ListTile(
-                title: Row(
-                  children: [
-                    Row(
+              return Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      teamList[index].name,
+                      overflow: TextOverflow.ellipsis,
+                      style: GoogleFonts.montserrat(
+                        fontSize: 14.0.sp,
+                        color: const Color(0xFF367EEA),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Row(
                       children: [
-                        SizedBox(
-                          width: 112,
-                          height: 27.39,
-                          child: Text(
-                            teamList[index].name,
-                            style: GoogleFonts.montserrat(
-                              fontSize: 20.0,
-                              color: const Color(0xFF367EEA),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 4),
                         InfoButton(
                           members: teamList[index].members,
                         ),
-                        const SizedBox(width: 11),
-                        Text(
-                          '${teamList[index].members.length}/${teamList[index].capacity}',
-                          style: GoogleFonts.montserrat(
-                            fontSize: 20.0,
-                            color: context.colors.black,
-                            fontWeight: FontWeight.w500,
+                        
+                        Expanded(
+                          child: Text(
+                            '${teamList[index].members.length}/${teamList[index].capacity}',
+                            style: GoogleFonts.montserrat(
+                              fontSize: 14.0.sp,
+                              color: context.colors.black,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
+                        ),
+                      
+                        CustomRadio(
+                          value: index,
+                          groupValue: selectedTeamIndex,
+                          onChanged: (value) {
+                            setState(() {
+                              selectedTeamIndex = value;
+                            });
+                          },
                         ),
                       ],
                     ),
-                    const SizedBox(width: 30.0),
-                    CustomRadio(
-                      value: index,
-                      groupValue: selectedTeamIndex,
-                      onChanged: (value) {
-                        setState(() {
-                          selectedTeamIndex = value;
-                        });
-                      },
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               );
             },
           ),
@@ -170,7 +171,7 @@ class _CustomRadioState extends State<CustomRadio> {
             shape: BoxShape.circle, color: Color(0xFFF5F5F5)),
         child: Icon(
           Icons.circle,
-          size: 10,
+          size: 10.sp,
           color: selected ? const Color(0xFFA5FDDD) : const Color(0xFFF5F5F5),
         ),
       ),

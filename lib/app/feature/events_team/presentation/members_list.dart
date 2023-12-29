@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MembersList extends StatelessWidget {
   final List<String> members;
@@ -8,7 +9,7 @@ class MembersList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 250,
+      width: 250.w,
       height: members.length * 49.0,
       decoration: BoxDecoration(
         color: const Color(0xFFF5F5F5),

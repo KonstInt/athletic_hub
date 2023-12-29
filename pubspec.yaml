@@ -24,6 +24,7 @@ dependencies:
   injectable: ^2.3.2
   dio: ^5.3.4
   intl: ^0.18.1
+  dropdown_search: ^5.0.6
   cached_network_image: ^3.3.0
 
 dev_dependencies:

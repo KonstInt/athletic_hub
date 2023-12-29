@@ -11,7 +11,7 @@ void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
 // setWindowMinSize(const Size(400, 300));
-//     setWindowMaxSize(Size.infinite);
+// setWindowMaxSize(Size.infinite);
 
   runApp(const App());
 }
